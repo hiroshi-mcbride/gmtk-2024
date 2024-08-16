@@ -1,6 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://con3m1bt17csg"]
+[gd_scene load_steps=11 format=3 uid="uid://con3m1bt17csg"]
 
+[ext_resource type="Script" path="res://assets/scripts/slug_body.gd" id="1_4ii1t"]
 [ext_resource type="Shader" path="res://assets/shaders/ps1.gdshader" id="1_25jiy"]
+[ext_resource type="Script" path="res://assets/scripts/player_slug.gd" id="1_86usw"]
 
 [sub_resource type="Curve3D" id="Curve3D_gqmcn"]
 bake_interval = 79.56
@@ -44,113 +46,114 @@ subdivide_height = 1
 subdivide_depth = 5
 
 [node name="PlayerSlug" type="Node3D"]
+script = ExtResource("1_86usw")
 
-[node name="Path3D" type="Path3D" parent="."]
+[node name="SlugBody" type="Path3D" parent="."]
 curve = SubResource("Curve3D_gqmcn")
+script = ExtResource("1_4ii1t")
 
-[node name="Body1" type="PathFollow3D" parent="Path3D"]
+[node name="Body1" type="PathFollow3D" parent="SlugBody"]
 transform = Transform3D(-4.3711e-08, 0, -0.999991, 0, 1, 0, 0.999991, 0, -4.3711e-08, 0, 0, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/Body1"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SlugBody/Body1"]
 mesh = SubResource("SphereMesh_k6glw")
 
-[node name="Body2" type="PathFollow3D" parent="Path3D"]
+[node name="Body2" type="PathFollow3D" parent="SlugBody"]
 transform = Transform3D(-4.37109e-08, 0, -0.999991, 0, 0.999996, 0, 0.999988, 0, -4.3711e-08, 0.0801609, 0, 0.00814492)
 progress = 0.11415
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/Body2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SlugBody/Body2"]
 mesh = SubResource("SphereMesh_k6glw")
-skeleton = NodePath("../../Body2")
 
-[node name="Body3" type="PathFollow3D" parent="Path3D"]
+[node name="Body3" type="PathFollow3D" parent="SlugBody"]
 transform = Transform3D(-4.3711e-08, 0, -0.999994, 0, 0.999997, 0, 0.99999, 0, -4.37111e-08, 0.194594, 0, 0.0229413)
 progress = 0.228301
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/Body3"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SlugBody/Body3"]
 mesh = SubResource("SphereMesh_k6glw")
 
-[node name="Body4" type="PathFollow3D" parent="Path3D"]
+[node name="Body4" type="PathFollow3D" parent="SlugBody"]
 transform = Transform3D(-4.37109e-08, 0, -0.999993, 0, 0.999997, 0, 0.999989, 0, -4.37111e-08, 0.32545, 0, 0.0299314)
 progress = 0.342451
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/Body4"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SlugBody/Body4"]
 mesh = SubResource("SphereMesh_k6glw")
 
-[node name="Body5" type="PathFollow3D" parent="Path3D"]
+[node name="Body5" type="PathFollow3D" parent="SlugBody"]
 transform = Transform3D(-4.37109e-08, 0, -0.99999, 0, 0.999998, 0, 0.999989, 0, -4.37109e-08, 0.454881, 0, 0.0146578)
 progress = 0.456601
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/Body5"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SlugBody/Body5"]
 mesh = SubResource("SphereMesh_k6glw")
 
-[node name="Body6" type="PathFollow3D" parent="Path3D"]
+[node name="Body6" type="PathFollow3D" parent="SlugBody"]
 transform = Transform3D(0.0747879, 0, -0.997178, 0, 0.999997, 0, 0.997178, 0, 0.0747879, 0.557669, 0, -0.0290727)
 progress = 0.570751
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/Body6"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SlugBody/Body6"]
 mesh = SubResource("SphereMesh_k6glw")
 
-[node name="Body7" type="PathFollow3D" parent="Path3D"]
+[node name="Body7" type="PathFollow3D" parent="SlugBody"]
 transform = Transform3D(0.19437, 0, -0.980826, 0, 0.999985, 0, 0.98081, 0, 0.194373, 0.658392, 0, -0.0987453)
 progress = 0.684902
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/Body7"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SlugBody/Body7"]
 mesh = SubResource("SphereMesh_k6glw")
 
-[node name="Body8" type="PathFollow3D" parent="Path3D"]
+[node name="Body8" type="PathFollow3D" parent="SlugBody"]
 transform = Transform3D(0.311133, 0, -0.950273, 0, 0.999991, 0, 0.950266, 0, 0.311135, 0.761286, 0, -0.18468)
 progress = 0.799052
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/Body8"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SlugBody/Body8"]
 mesh = SubResource("SphereMesh_k6glw")
 
-[node name="Body9" type="PathFollow3D" parent="Path3D"]
+[node name="Body9" type="PathFollow3D" parent="SlugBody"]
 transform = Transform3D(0.42335, 0, -0.90586, 0, 0.999985, 0, 0.905838, 0, 0.42336, 0.857975, 0, -0.273309)
 progress = 0.913202
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/Body9"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SlugBody/Body9"]
 mesh = SubResource("SphereMesh_k6glw")
 
-[node name="Body10" type="PathFollow3D" parent="Path3D"]
+[node name="Body10" type="PathFollow3D" parent="SlugBody"]
 transform = Transform3D(0.529428, 0, -0.848289, 0, 1, 0, 0.848268, 0, 0.529442, 0.940085, 0, -0.351066)
 progress = 1.02735
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/Body10"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SlugBody/Body10"]
 mesh = SubResource("SphereMesh_k6glw")
 
-[node name="Ears" type="PathFollow3D" parent="Path3D"]
+[node name="Ears" type="PathFollow3D" parent="SlugBody"]
 transform = Transform3D(0.506181, 0, -0.862296, 0, 1, 0, 0.862287, 0, 0.506186, 0.923329, 0, -0.335233)
 progress = 1.00169
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/Ears"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SlugBody/Ears"]
 transform = Transform3D(0.853697, 0.506951, 0.119169, -0.520708, 0.834467, 0.180352, -0.00801304, -0.216018, 0.976356, 0.105946, 0.212437, -0.0366372)
 mesh = SubResource("CapsuleMesh_rqwv7")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Path3D/Ears"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="SlugBody/Ears"]
 transform = Transform3D(0.927405, -0.367239, -0.0710965, 0.362655, 0.836172, 0.411456, -0.091654, -0.40737, 0.908652, -0.106584, 0.183927, -0.0445641)
 mesh = SubResource("CapsuleMesh_rqwv7")
 
-[node name="Tail" type="PathFollow3D" parent="Path3D"]
+[node name="Tail" type="PathFollow3D" parent="SlugBody"]
 transform = Transform3D(-4.37015e-08, 0, -0.999779, 0, 1, 0, 0.999775, 0, -4.37017e-08, 0.0201592, 0, 0.000946562)
 progress = 0.0354657
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/Tail"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SlugBody/Tail"]
 transform = Transform3D(1, 8.06705e-09, -7.5087e-10, -8.06703e-09, 0.982822, -0.184552, -7.50802e-10, 0.184552, 0.982822, 4.01633e-09, 0.145197, 0.0917643)
 mesh = SubResource("PrismMesh_nlx6u")
 
-[node name="Camera Follow" type="PathFollow3D" parent="Path3D"]
+[node name="Camera Follow" type="PathFollow3D" parent="SlugBody"]
 transform = Transform3D(0.201531, 0, -0.979478, 0, 1, 0, 0.979478, 0, 0.201531, 0.66462, 0, -0.103603)
 progress = 0.691786
 
-[node name="Camera3D" type="Camera3D" parent="Path3D/Camera Follow"]
+[node name="Camera3D" type="Camera3D" parent="SlugBody/Camera Follow"]
 transform = Transform3D(1, 4.65661e-10, 0, 0, 0.999391, -0.0348994, 0, 0.0348995, 0.999392, 0, 0.627, 1.97)
 fov = 87.0
 
-[node name="Light" type="PathFollow3D" parent="Path3D"]
+[node name="Light" type="PathFollow3D" parent="SlugBody"]
 transform = Transform3D(0.0758152, 0, -0.997114, 0, 1, 0, 0.997114, 0, 0.0758152, 0.558494, 0, -0.0295596)
 progress = 0.571724
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Path3D/Light"]
+[node name="SpotLight3D" type="SpotLight3D" parent="SlugBody/Light"]
 transform = Transform3D(1.00001, 0, -1.77636e-15, 0, -4.37117e-08, 1, -1.49012e-08, -1.00001, -4.3712e-08, 0, 0.571, 0)
 light_indirect_energy = 2.454
 light_specular = 3.071
