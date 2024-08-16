@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://con3m1bt17csg"]
+[gd_scene load_steps=9 format=3 uid="uid://con3m1bt17csg"]
 
 [ext_resource type="Shader" path="res://assets/shaders/ps1.gdshader" id="1_25jiy"]
 
 [sub_resource type="Curve3D" id="Curve3D_gqmcn"]
-bake_interval = 99.84
+bake_interval = 79.56
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, -0.44),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, -0.405),
 "tilts": PackedFloat32Array(0, 0, 0)
 }
 point_count = 3
@@ -22,6 +22,27 @@ height = 0.3
 radial_segments = 11
 rings = 7
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_047qe"]
+render_priority = 0
+shader = ExtResource("1_25jiy")
+shader_parameter/albedo = Color(0.212305, 0.212305, 0.212305, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_rqwv7"]
+material = SubResource("ShaderMaterial_047qe")
+radius = 0.05
+height = 0.235
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6uy5w"]
+render_priority = 0
+shader = ExtResource("1_25jiy")
+shader_parameter/albedo = Color(0.695503, 0.695503, 0.695503, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_nlx6u"]
+material = SubResource("ShaderMaterial_6uy5w")
+size = Vector3(0.27, 0.085, 0.215)
+subdivide_height = 1
+subdivide_depth = 5
+
 [node name="PlayerSlug" type="Node3D"]
 
 [node name="Path3D" type="Path3D" parent="."]
@@ -34,7 +55,7 @@ transform = Transform3D(-4.3711e-08, 0, -0.999991, 0, 1, 0, 0.999991, 0, -4.3711
 mesh = SubResource("SphereMesh_k6glw")
 
 [node name="Body2" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-4.3711e-08, 0, -0.999991, 0, 1, 0, 0.999991, 0, -4.3711e-08, 0.0796573, 0, 0.006448)
+transform = Transform3D(-4.37109e-08, 0, -0.999991, 0, 0.999996, 0, 0.999988, 0, -4.3711e-08, 0.0801609, 0, 0.00814492)
 progress = 0.11415
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/Body2"]
@@ -42,57 +63,77 @@ mesh = SubResource("SphereMesh_k6glw")
 skeleton = NodePath("../../Body2")
 
 [node name="Body3" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-4.37111e-08, 0, -0.999994, 0, 1, 0, 0.999994, 0, -4.37111e-08, 0.193461, 0, 0.0197322)
+transform = Transform3D(-4.3711e-08, 0, -0.999994, 0, 0.999997, 0, 0.99999, 0, -4.37111e-08, 0.194594, 0, 0.0229413)
 progress = 0.228301
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/Body3"]
 mesh = SubResource("SphereMesh_k6glw")
 
 [node name="Body4" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-4.37111e-08, 0, -0.999994, 0, 1, 0, 0.999994, 0, -4.37111e-08, 0.324885, 0, 0.0307628)
+transform = Transform3D(-4.37109e-08, 0, -0.999993, 0, 0.999997, 0, 0.999989, 0, -4.37111e-08, 0.32545, 0, 0.0299314)
 progress = 0.342451
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/Body4"]
 mesh = SubResource("SphereMesh_k6glw")
 
 [node name="Body5" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-4.37111e-08, 0, -0.999994, 0, 1, 0, 0.999994, 0, -4.37111e-08, 0.457401, 0, 0.0304501)
+transform = Transform3D(-4.37109e-08, 0, -0.99999, 0, 0.999998, 0, 0.999989, 0, -4.37109e-08, 0.454881, 0, 0.0146578)
 progress = 0.456601
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/Body5"]
 mesh = SubResource("SphereMesh_k6glw")
 
 [node name="Body6" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-4.37111e-08, 0, -0.999994, 0, 1, 0, 0.999994, 0, -4.37111e-08, 0.574484, 0, 0.0097044)
+transform = Transform3D(0.0747879, 0, -0.997178, 0, 0.999997, 0, 0.997178, 0, 0.0747879, 0.557669, 0, -0.0290727)
 progress = 0.570751
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/Body6"]
 mesh = SubResource("SphereMesh_k6glw")
 
 [node name="Body7" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(0.118646, 0, -0.992893, 0, 1, 0, 0.992893, 0, 0.118646, 0.671098, 0, -0.0435847)
+transform = Transform3D(0.19437, 0, -0.980826, 0, 0.999985, 0, 0.98081, 0, 0.194373, 0.658392, 0, -0.0987453)
 progress = 0.684902
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/Body7"]
 mesh = SubResource("SphereMesh_k6glw")
 
 [node name="Body8" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(0.275223, 0, -0.961336, 0, 1, 0, 0.961336, 0, 0.275223, 0.76362, 0, -0.131094)
+transform = Transform3D(0.311133, 0, -0.950273, 0, 0.999991, 0, 0.950266, 0, 0.311135, 0.761286, 0, -0.18468)
 progress = 0.799052
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/Body8"]
 mesh = SubResource("SphereMesh_k6glw")
 
 [node name="Body9" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(0.42478, 0, -0.905254, 0, 1, 0, 0.905254, 0, 0.42478, 0.848741, 0, -0.23468)
+transform = Transform3D(0.42335, 0, -0.90586, 0, 0.999985, 0, 0.905838, 0, 0.42336, 0.857975, 0, -0.273309)
 progress = 0.913202
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/Body9"]
 mesh = SubResource("SphereMesh_k6glw")
 
 [node name="Body10" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(0.563502, 0, -0.826078, 0, 1, 0, 0.826078, 0, 0.563502, 0.922217, 0, -0.335668)
+transform = Transform3D(0.529428, 0, -0.848289, 0, 1, 0, 0.848268, 0, 0.529442, 0.940085, 0, -0.351066)
 progress = 1.02735
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/Body10"]
 mesh = SubResource("SphereMesh_k6glw")
+
+[node name="Ears" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(0.506181, 0, -0.862296, 0, 1, 0, 0.862287, 0, 0.506186, 0.923329, 0, -0.335233)
+progress = 1.00169
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/Ears"]
+transform = Transform3D(0.853697, 0.506951, 0.119169, -0.520708, 0.834467, 0.180352, -0.00801304, -0.216018, 0.976356, 0.105946, 0.212437, -0.0366372)
+mesh = SubResource("CapsuleMesh_rqwv7")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Path3D/Ears"]
+transform = Transform3D(0.927405, -0.367239, -0.0710965, 0.362655, 0.836172, 0.411456, -0.091654, -0.40737, 0.908652, -0.106584, 0.183927, -0.0445641)
+mesh = SubResource("CapsuleMesh_rqwv7")
+
+[node name="Tail" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-4.37015e-08, 0, -0.999779, 0, 1, 0, 0.999775, 0, -4.37017e-08, 0.0201592, 0, 0.000946562)
+progress = 0.0354657
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/Tail"]
+transform = Transform3D(1, 8.06705e-09, -7.5087e-10, -8.06703e-09, 0.982822, -0.184552, -7.50802e-10, 0.184552, 0.982822, 4.01633e-09, 0.145197, 0.0917643)
+mesh = SubResource("PrismMesh_nlx6u")
