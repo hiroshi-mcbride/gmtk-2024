@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://cgpova24fiula"]
+
+[ext_resource type="PackedScene" uid="uid://rjbjyplttgb4" path="res://assets/player/player_ship.tscn" id="1_b7wo3"]
+[ext_resource type="Script" path="res://src/ship_camera.gd" id="2_gd4ss"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0kxki"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_42o1q"]
+sky_material = SubResource("ProceduralSkyMaterial_0kxki")
+
+[sub_resource type="Environment" id="Environment_euhcx"]
+background_mode = 2
+sky = SubResource("Sky_42o1q")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xrc62"]
+albedo_color = Color(0.233925, 0.233925, 0.233925, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_14a7o"]
+material = SubResource("StandardMaterial3D_xrc62")
+size = Vector2(48, 48)
+
+[node name="PlayerShipTest" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_euhcx")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="PlayerShip" parent="." instance=ExtResource("1_b7wo3")]
+transform = Transform3D(0.999978, 0.005597, -0.00347234, -0.00558637, 0.99998, 0.00306448, 0.00348941, -0.00304503, 0.999989, 0, 2.0893, 0)
+
+[node name="ShipCamera" type="Camera3D" parent="." node_paths=PackedStringArray("follow_subject")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0893, 6.25216)
+script = ExtResource("2_gd4ss")
+follow_subject = NodePath("../PlayerShip")
+follow_distance = 10.0
+lookahead_distance = 5.0
+offset = Vector3(0, 0, 3.87)
+follow_damping = 0.001
+lookat_damping = 0.878
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.07115)
+mesh = SubResource("PlaneMesh_14a7o")
