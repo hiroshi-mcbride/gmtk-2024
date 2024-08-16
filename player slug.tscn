@@ -137,3 +137,24 @@ progress = 0.0354657
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/Tail"]
 transform = Transform3D(1, 8.06705e-09, -7.5087e-10, -8.06703e-09, 0.982822, -0.184552, -7.50802e-10, 0.184552, 0.982822, 4.01633e-09, 0.145197, 0.0917643)
 mesh = SubResource("PrismMesh_nlx6u")
+
+[node name="Camera Follow" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(0.201531, 0, -0.979478, 0, 1, 0, 0.979478, 0, 0.201531, 0.66462, 0, -0.103603)
+progress = 0.691786
+
+[node name="Camera3D" type="Camera3D" parent="Path3D/Camera Follow"]
+transform = Transform3D(1, 4.65661e-10, 0, 0, 0.999391, -0.0348994, 0, 0.0348995, 0.999392, 0, 0.627, 1.97)
+fov = 87.0
+
+[node name="Light" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(0.0758152, 0, -0.997114, 0, 1, 0, 0.997114, 0, 0.0758152, 0.558494, 0, -0.0295596)
+progress = 0.571724
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Path3D/Light"]
+transform = Transform3D(1.00001, 0, -1.77636e-15, 0, -4.37117e-08, 1, -1.49012e-08, -1.00001, -4.3712e-08, 0, 0.571, 0)
+light_indirect_energy = 2.454
+light_specular = 3.071
+spot_range = 1.522
+spot_attenuation = -2.63
+spot_angle = 66.71
+spot_angle_attenuation = 0.329877
