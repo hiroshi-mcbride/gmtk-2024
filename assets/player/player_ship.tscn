@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://rjbjyplttgb4"]
+
+[ext_resource type="Script" path="res://src/ship_movement.gd" id="1_s12tv"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_l4ndf"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lvu2m"]
+
+[node name="PlayerShip" type="RigidBody3D"]
+gravity_scale = 0.0
+script = ExtResource("1_s12tv")
+
+[node name="ShipModel" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_l4ndf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_lvu2m")

@@ -1,3 +1,30 @@
-[gd_scene format=3 uid="uid://cidbu3txii66l"]
+[gd_scene load_steps=5 format=3 uid="uid://cidbu3txii66l"]
+
+[ext_resource type="PackedScene" uid="uid://rjbjyplttgb4" path="res://assets/player/player_ship.tscn" id="1_vclut"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_02a0e"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_8k5d4"]
+sky_material = SubResource("ProceduralSkyMaterial_02a0e")
+
+[sub_resource type="Environment" id="Environment_sjsgh"]
+background_mode = 2
+sky = SubResource("Sky_8k5d4")
+tonemap_mode = 2
+glow_enabled = true
 
 [node name="Main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_sjsgh")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="PlayerShip" parent="." instance=ExtResource("1_vclut")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 2, 8.74719)
