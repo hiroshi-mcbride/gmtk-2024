@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://c5cd1sw74yigk"]
+[gd_scene load_steps=15 format=3 uid="uid://c5cd1sw74yigk"]
 
 [ext_resource type="PackedScene" uid="uid://lakqv0fs0gda" path="res://assets/models/world1.glb" id="1_mqybv"]
 [ext_resource type="Texture2D" uid="uid://b4ocu6hrb5jjh" path="res://assets/textures/rustig_koppie_puresky_4k.exr" id="1_seu1q"]
 [ext_resource type="Shader" uid="uid://bqy3eyg6oh8d6" path="res://assets/shaders/water_surface.tres" id="3_3g05g"]
+[ext_resource type="ArrayMesh" uid="uid://c45aas0rxce1q" path="res://assets/models/coral1.obj" id="3_uqh8w"]
 [ext_resource type="PackedScene" uid="uid://con3m1bt17csg" path="res://assets/player/player_slug.tscn" id="4_ixh8q"]
+[ext_resource type="Texture2D" uid="uid://bsd2avflyujmb" path="res://assets/textures/coral1.png" id="4_pwxc0"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ysank"]
 panorama = ExtResource("1_seu1q")
@@ -42,6 +44,12 @@ volumetric_fog_ambient_inject = 0.95
 volumetric_fog_sky_affect = 0.577
 volumetric_fog_temporal_reprojection_amount = 0.907
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m1cu7"]
+albedo_texture = ExtResource("4_pwxc0")
+uv1_scale = Vector3(0.305, 0.305, 0.305)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 0.101532
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_muq6j"]
 flip_faces = true
 size = Vector2(20, 20)
@@ -68,6 +76,16 @@ environment = SubResource("Environment_n4qif")
 
 [node name="world1" parent="." instance=ExtResource("1_mqybv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000768244, 3.57628e-07, 0.00548983)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="world1"]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0.00955182, 0.0224705, 0)
+mesh = ExtResource("3_uqh8w")
+surface_material_override/0 = SubResource("StandardMaterial3D_m1cu7")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="world1"]
+transform = Transform3D(0.00518814, 0, 0.0076482, 0.000856443, 0.0127524, -0.000895835, -0.00609932, 0.00179065, 0.00637985, -0.0292366, 0.0168826, -0.0290093)
+mesh = ExtResource("3_uqh8w")
+surface_material_override/0 = SubResource("StandardMaterial3D_m1cu7")
 
 [node name="test camera" type="Camera3D" parent="."]
 transform = Transform3D(-0.472544, 0.175693, 0.863617, 0.0240086, 0.98213, -0.186667, -0.88098, -0.0674739, -0.468318, 0.152641, 0.0639882, -0.238367)
