@@ -3,6 +3,7 @@ extends CharacterBody3D
 var camera_3d: Camera3D
 @export var oozle_speed: float
 @export_range(-1,1) var oozle_sigmoid_cutoff: float
+@onready var ray: RayCast3D = $RayCast3D
 
 var input_vector : Vector2
 var relative_input_vector : Vector3
@@ -27,12 +28,21 @@ func _physics_process(delta: float) -> void:
 	relative_input_vector = forward * input_vector.y + right * input_vector.x
 	relative_input_vector.y = 0.0
 	var new_speed = velocity.lerp(relative_input_vector * oozle_speed, 0.9)
-	velocity = Vector3(new_speed.x, 0.0, new_speed.z)
+	velocity.y += get_gravity().y * delta
+	velocity = Vector3(new_speed.x, velocity.y, new_speed.z)
 	move_and_slide()
+	if is_on_floor():
+		global_transform = global_transform.interpolate_with(align_with_y(global_transform, get_floor_normal()), delta * 30.0)
+	#print(global_basis.y.cross(get_floor_normal()))
+	
+	
+	#rotation.x = -global_basis.y.cross(get_floor_normal()).x
+	
 	if input_vector.length_squared() > 0:
 		var dir = Vector2(velocity.x, velocity.z)
 		var target_angle = -atan2(velocity.z, velocity.x) - deg_to_rad(90)
 		rotation.y = lerp_angle(rotation.y, target_angle, delta * 10.0)
+	
 	
 	#print(velocity)
 	
@@ -43,3 +53,9 @@ func _sigmoid(x:float) -> float:
 
 func get_lookat():
 	return $SlugBody/Head
+
+func align_with_y(xform, new_y):
+	xform.basis.y = new_y
+	xform.basis.x = -xform.basis.z.cross(new_y)
+	xform.basis = xform.basis.orthonormalized()
+	return xform

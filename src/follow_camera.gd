@@ -14,11 +14,12 @@ func _ready() -> void:
 	lookat = follow_subject.get_lookat()
 
 func _physics_process(delta: float) -> void:
-	var yrad = deg_to_rad(global_rotation.y)
-	var lookat_yrad = deg_to_rad(lookat.global_rotation.y)
-	transform = transform.interpolate_with(transform.looking_at(lookat.global_position), lookat_damping * delta)
+	look_at(lookat.global_position)
+	#var yrad = deg_to_rad(global_rotation.y)
+	#var lookat_yrad = deg_to_rad(lookat.global_rotation.y)
 	
-	global_position = global_position.slerp(get_lookat_follow_position(lookat), follow_damping * delta)
+	#transform = transform.interpolate_with(transform.looking_at(lookat.global_position), lookat_damping * delta)
+	#global_position = global_position.slerp(get_lookat_follow_position(lookat), follow_damping * delta)
 
 func get_lookat_follow_position(lookat) -> Vector3:
 	var lookat_back = lookat.global_position + lookat.global_basis.z * follow_distance

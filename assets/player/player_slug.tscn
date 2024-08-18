@@ -46,6 +46,9 @@ script = ExtResource("1_7nad0")
 lookat = NodePath("Head")
 
 [node name="Head" type="CharacterBody3D" parent="."]
+floor_block_on_wall = false
+floor_max_angle = 1.29503
+floor_snap_length = 0.2
 script = ExtResource("1_86usw")
 oozle_speed = 4.0
 
@@ -73,8 +76,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
 collision_layer = 2
 mass = 2.29
 physics_material_override = ExtResource("4_0vfro")
-linear_damp = 2.0
-angular_damp = 2.0
+gravity_scale = 0.0
+linear_damp = 13.112
+angular_damp = 13.111
 
 [node name="Body02" type="MeshInstance3D" parent="Body01"]
 transform = Transform3D(0.999983, 0, 0, 0, 0.999996, 0, 0, 0, 0.999986, 0, 0, -0.000149965)
@@ -89,8 +93,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2)
 collision_layer = 2
 mass = 2.29
 physics_material_override = ExtResource("4_0vfro")
-linear_damp = 2.0
-angular_damp = 2.0
+gravity_scale = 0.0
+linear_damp = 13.112
+angular_damp = 13.111
 
 [node name="Body02" type="MeshInstance3D" parent="Body02"]
 transform = Transform3D(0.999983, 0, 0, 0, 0.999996, 0, 0, 0, 0.999986, 0, 0, -0.000149965)
@@ -105,8 +110,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.3)
 collision_layer = 2
 mass = 2.29
 physics_material_override = ExtResource("4_0vfro")
-linear_damp = 2.0
-angular_damp = 2.0
+gravity_scale = 0.0
+linear_damp = 13.112
+angular_damp = 13.111
 
 [node name="Body02" type="MeshInstance3D" parent="Body03"]
 transform = Transform3D(0.999983, 0, 0, 0, 0.999996, 0, 0, 0, 0.999986, 0, 0, -0.000149965)
@@ -121,8 +127,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4)
 collision_layer = 2
 mass = 2.29
 physics_material_override = ExtResource("4_0vfro")
-linear_damp = 2.0
-angular_damp = 2.0
+gravity_scale = 0.0
+linear_damp = 13.112
+angular_damp = 13.111
 
 [node name="Body02" type="MeshInstance3D" parent="Body04"]
 transform = Transform3D(0.999983, 0, 0, 0, 0.999996, 0, 0, 0, 0.999986, 0, 0, -0.000149965)
@@ -137,8 +144,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 collision_layer = 2
 mass = 2.29
 physics_material_override = ExtResource("4_0vfro")
-linear_damp = 2.0
-angular_damp = 2.0
+gravity_scale = 0.0
+linear_damp = 13.112
+angular_damp = 13.111
 
 [node name="Body02" type="MeshInstance3D" parent="Body05"]
 transform = Transform3D(0.999983, 0, 0, 0, 0.999996, 0, 0, 0, 0.999986, 0, 0, -0.000149965)
@@ -153,8 +161,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.6)
 collision_layer = 2
 mass = 2.29
 physics_material_override = ExtResource("4_0vfro")
-linear_damp = 2.0
-angular_damp = 2.0
+gravity_scale = 0.0
+linear_damp = 13.112
+angular_damp = 13.111
 
 [node name="Body02" type="MeshInstance3D" parent="Body06"]
 transform = Transform3D(0.999983, 0, 0, 0, 0.999996, 0, 0, 0, 0.999986, 0, 0, -0.000149965)
@@ -169,8 +178,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7)
 collision_layer = 2
 mass = 2.29
 physics_material_override = ExtResource("4_0vfro")
-linear_damp = 2.0
-angular_damp = 2.0
+gravity_scale = 0.0
+linear_damp = 13.112
+angular_damp = 13.111
 
 [node name="Body02" type="MeshInstance3D" parent="Body07"]
 transform = Transform3D(0.999983, 0, 0, 0, 0.999996, 0, 0, 0, 0.999986, 0, 0, -0.000149965)
@@ -185,8 +195,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.8)
 collision_layer = 2
 mass = 2.29
 physics_material_override = ExtResource("4_0vfro")
-linear_damp = 2.0
-angular_damp = 2.0
+gravity_scale = 0.0
+linear_damp = 13.112
+angular_damp = 13.111
 
 [node name="Body02" type="MeshInstance3D" parent="Body08"]
 transform = Transform3D(0.999983, 0, 0, 0, 0.999996, 0, 0, 0, 0.999986, 0, 0, -0.000149965)
@@ -201,8 +212,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.9)
 collision_layer = 2
 mass = 2.29
 physics_material_override = ExtResource("4_0vfro")
-linear_damp = 2.0
-angular_damp = 2.0
+gravity_scale = 0.0
+linear_damp = 13.112
+angular_damp = 13.111
 
 [node name="Body02" type="MeshInstance3D" parent="Body09"]
 transform = Transform3D(0.999983, 0, 0, 0, 0.999996, 0, 0, 0, 0.999986, 0, 0, -0.000149965)
