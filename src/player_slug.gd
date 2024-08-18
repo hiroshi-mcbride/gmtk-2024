@@ -8,8 +8,8 @@ var relative_input_vector : Vector3
 
 func _process(delta: float) -> void:
 	input_vector = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	var forward = camera_3d.basis.z
-	var right = camera_3d.basis.x
+	var forward = camera_3d.global_basis.z
+	var right = camera_3d.global_basis.x
 	relative_input_vector = forward * input_vector.y + right * input_vector.x
 	relative_input_vector.y = 0.0
 
@@ -18,8 +18,6 @@ func _physics_process(delta: float) -> void:
 	var point0 = curve.get_point_position(0)
 	var point1 = curve.get_point_position(1)
 	var point2 = curve.get_point_position(2)
-	
-	
 	
 	curve.set_point_position(0, point0 + relative_input_vector * 5 * delta)
 	curve.set_point_position(1, curve.sample_baked(0.5))
