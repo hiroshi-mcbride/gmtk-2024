@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://cidbu3txii66l"]
+[gd_scene load_steps=10 format=3 uid="uid://cidbu3txii66l"]
 
 [ext_resource type="PackedScene" uid="uid://con3m1bt17csg" path="res://assets/player/player_slug.tscn" id="1_bub2t"]
-[ext_resource type="Script" path="res://src/follow_camera.gd" id="2_3y5k5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_02a0e"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -24,6 +23,13 @@ material = SubResource("StandardMaterial3D_ba64k")
 size = Vector3(16, 1, 16)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_veedy"]
+size = Vector3(16, 1, 16)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_br6xn"]
+size = Vector3(12, 4, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jjf5k"]
+size = Vector3(12, 4, 1)
 
 [node name="Main" type="Node3D"]
 
@@ -35,10 +41,8 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -
 shadow_enabled = true
 
 [node name="PlayerSlug" parent="." node_paths=PackedStringArray("camera_3d") instance=ExtResource("1_bub2t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.90189)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.294131, -0.516147)
 camera_3d = NodePath("../Camera3D")
-oozle_speed = 1.0
-oozle_sigmoid_cutoff = -0.072
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.883598, 0)
@@ -47,14 +51,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.883598, 0)
 mesh = SubResource("BoxMesh_y415c")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 16)
 shape = SubResource("BoxShape3D_veedy")
 
-[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("follow_subject")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.703122, -2.54221)
-script = ExtResource("2_3y5k5")
-follow_subject = NodePath("../PlayerSlug")
-follow_distance = 3.0
-offset = Vector3(0, 1, 0)
-follow_damping = 45.8
-lookat_damping = 42.329
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, -2.13163e-14, 5.51706e-15, 0.965926, 0.258819, 2.05899e-14, -0.258819, 0.965926, 0, 1.61569, 2.75634)
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 4.95298)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+shape = SubResource("BoxShape3D_br6xn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
+mesh = SubResource("BoxMesh_jjf5k")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.96688, 6.02744)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3"]
+shape = SubResource("BoxShape3D_br6xn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D3"]
+mesh = SubResource("BoxMesh_jjf5k")

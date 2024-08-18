@@ -1,16 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://con3m1bt17csg"]
+[gd_scene load_steps=12 format=3 uid="uid://con3m1bt17csg"]
 
-[ext_resource type="Script" path="res://src/slug_body.gd" id="1_4ii1t"]
+[ext_resource type="Script" path="res://src/player_container.gd" id="1_7nad0"]
 [ext_resource type="Shader" path="res://assets/shaders/ps1.gdshader" id="1_25jiy"]
 [ext_resource type="Script" path="res://src/player_slug.gd" id="1_86usw"]
+[ext_resource type="PhysicsMaterial" uid="uid://vvbbctc44vsy" path="res://assets/player/player_body.physmat.tres" id="4_0vfro"]
 
-[sub_resource type="Curve3D" id="Curve3D_gqmcn"]
-bake_interval = 79.56
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-"tilts": PackedFloat32Array(0, 0, 0)
-}
-point_count = 3
+[sub_resource type="SphereShape3D" id="SphereShape3D_it284"]
+radius = 0.150752
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xusu6"]
 render_priority = 0
@@ -45,111 +41,315 @@ size = Vector3(0.27, 0.085, 0.215)
 subdivide_height = 1
 subdivide_depth = 5
 
-[node name="PlayerSlug" type="Node3D" node_paths=PackedStringArray("camera_3d")]
+[node name="PlayerSlug" type="Node3D" node_paths=PackedStringArray("lookat")]
+script = ExtResource("1_7nad0")
+lookat = NodePath("Head")
+
+[node name="Head" type="CharacterBody3D" parent="."]
 script = ExtResource("1_86usw")
-camera_3d = NodePath("")
+oozle_speed = 4.0
 
-[node name="SlugBody" type="Path3D" parent="."]
-curve = SubResource("Curve3D_gqmcn")
-script = ExtResource("1_4ii1t")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Head"]
+shape = SubResource("SphereShape3D_it284")
 
-[node name="Body1" type="PathFollow3D" parent="SlugBody"]
-transform = Transform3D(0.999986, 0, 0, 0, 1, 0, 0, 0, 0.999986, 0, 0, 1)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SlugBody/Body1"]
+[node name="Body01" type="MeshInstance3D" parent="Head"]
+transform = Transform3D(0.999986, 0, 0, 0, 1, 0, 0, 0, 0.999986, 0, 0, 0)
 mesh = SubResource("SphereMesh_k6glw")
+skeleton = NodePath("")
 
-[node name="Body2" type="PathFollow3D" parent="SlugBody"]
-transform = Transform3D(0.999983, 0, 0, 0, 0.999996, 0, 0, 0, 0.999986, 0, 0, 0.919839)
-progress = 0.11415
+[node name="Ears" type="Node3D" parent="Head"]
+transform = Transform3D(0.999876, 0, 0, 0, 1, 0, 0, 0, 0.999885, 0, 0, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SlugBody/Body2"]
-mesh = SubResource("SphereMesh_k6glw")
-
-[node name="Body3" type="PathFollow3D" parent="SlugBody"]
-transform = Transform3D(0.999984, 0, 0, 0, 0.999997, 0, 0, 0, 0.999987, 0, 0, 0.805405)
-progress = 0.228301
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SlugBody/Body3"]
-mesh = SubResource("SphereMesh_k6glw")
-
-[node name="Body4" type="PathFollow3D" parent="SlugBody"]
-transform = Transform3D(0.999984, 0, 0, 0, 0.999997, 0, 0, 0, 0.999987, 0, 0, 0.674549)
-progress = 0.342451
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SlugBody/Body4"]
-mesh = SubResource("SphereMesh_k6glw")
-
-[node name="Body5" type="PathFollow3D" parent="SlugBody"]
-transform = Transform3D(0.999984, 0, 0, 0, 0.999998, 0, 0, 0, 0.999984, 0, 0, 0.545119)
-progress = 0.456601
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SlugBody/Body5"]
-mesh = SubResource("SphereMesh_k6glw")
-
-[node name="Body6" type="PathFollow3D" parent="SlugBody"]
-transform = Transform3D(0.999974, 0, 0, 0, 0.999997, 0, 0, 0, 0.999974, 0, 0, 0.424952)
-progress = 0.570751
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SlugBody/Body6"]
-mesh = SubResource("SphereMesh_k6glw")
-
-[node name="Body7" type="PathFollow3D" parent="SlugBody"]
-transform = Transform3D(0.999882, 0, 0, 0, 0.999985, 0, 0, 0, 0.999897, 0, 0, 0.293552)
-progress = 0.684902
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SlugBody/Body7"]
-mesh = SubResource("SphereMesh_k6glw")
-
-[node name="Body8" type="PathFollow3D" parent="SlugBody"]
-transform = Transform3D(0.999903, 0, 0, 0, 0.999991, 0, 0, 0, 0.999908, 0, 0, 0.165006)
-progress = 0.799052
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SlugBody/Body8"]
-mesh = SubResource("SphereMesh_k6glw")
-
-[node name="Body9" type="PathFollow3D" parent="SlugBody"]
-transform = Transform3D(0.999881, 0, 0, 0, 0.999985, 0, 0, 0, 0.999905, 0, 0, 0.0571589)
-progress = 0.913202
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SlugBody/Body9"]
-mesh = SubResource("SphereMesh_k6glw")
-
-[node name="Body10" type="PathFollow3D" parent="SlugBody"]
-transform = Transform3D(0.999922, 0, 0, 0, 1, 0, 0, 0, 0.999947, 0, 0, 0)
-progress = 1.02735
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SlugBody/Body10"]
-mesh = SubResource("SphereMesh_k6glw")
-
-[node name="Ears" type="PathFollow3D" parent="SlugBody"]
-transform = Transform3D(0.999876, 0, 0, 0, 1, 0, 0, 0, 0.999885, 0, 0, 1)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SlugBody/Ears"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Head/Ears"]
 transform = Transform3D(-0.853697, -0.506951, -0.119169, -0.520708, 0.834467, 0.180352, 0.00801309, 0.216018, -0.976356, -0.106584, 0.212437, -0.0445641)
 mesh = SubResource("CapsuleMesh_rqwv7")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="SlugBody/Ears"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Head/Ears"]
 transform = Transform3D(-0.927405, 0.367239, 0.0710964, 0.362655, 0.836172, 0.411456, 0.091654, 0.40737, -0.908652, 0.105946, 0.183927, -0.0366371)
 mesh = SubResource("CapsuleMesh_rqwv7")
 
-[node name="Tail" type="PathFollow3D" parent="SlugBody"]
-transform = Transform3D(0.99978, 0, 0, 0, 1, 0, 0, 0, 0.999783, 0, 0, 0)
-progress = 1.0
+[node name="Body01" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
+collision_layer = 2
+mass = 2.29
+physics_material_override = ExtResource("4_0vfro")
+linear_damp = 2.0
+angular_damp = 2.0
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SlugBody/Tail"]
-transform = Transform3D(-1, 8.067e-09, 8.66719e-08, -8.06703e-09, 0.982822, -0.184552, -8.6672e-08, -0.184552, -0.982822, 4.01633e-09, 0.145197, -0.0172707)
+[node name="Body02" type="MeshInstance3D" parent="Body01"]
+transform = Transform3D(0.999983, 0, 0, 0, 0.999996, 0, 0, 0, 0.999986, 0, 0, -0.000149965)
+mesh = SubResource("SphereMesh_k6glw")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Body01"]
+shape = SubResource("SphereShape3D_it284")
+
+[node name="Body02" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2)
+collision_layer = 2
+mass = 2.29
+physics_material_override = ExtResource("4_0vfro")
+linear_damp = 2.0
+angular_damp = 2.0
+
+[node name="Body02" type="MeshInstance3D" parent="Body02"]
+transform = Transform3D(0.999983, 0, 0, 0, 0.999996, 0, 0, 0, 0.999986, 0, 0, -0.000149965)
+mesh = SubResource("SphereMesh_k6glw")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Body02"]
+shape = SubResource("SphereShape3D_it284")
+
+[node name="Body03" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.3)
+collision_layer = 2
+mass = 2.29
+physics_material_override = ExtResource("4_0vfro")
+linear_damp = 2.0
+angular_damp = 2.0
+
+[node name="Body02" type="MeshInstance3D" parent="Body03"]
+transform = Transform3D(0.999983, 0, 0, 0, 0.999996, 0, 0, 0, 0.999986, 0, 0, -0.000149965)
+mesh = SubResource("SphereMesh_k6glw")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Body03"]
+shape = SubResource("SphereShape3D_it284")
+
+[node name="Body04" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4)
+collision_layer = 2
+mass = 2.29
+physics_material_override = ExtResource("4_0vfro")
+linear_damp = 2.0
+angular_damp = 2.0
+
+[node name="Body02" type="MeshInstance3D" parent="Body04"]
+transform = Transform3D(0.999983, 0, 0, 0, 0.999996, 0, 0, 0, 0.999986, 0, 0, -0.000149965)
+mesh = SubResource("SphereMesh_k6glw")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Body04"]
+shape = SubResource("SphereShape3D_it284")
+
+[node name="Body05" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+collision_layer = 2
+mass = 2.29
+physics_material_override = ExtResource("4_0vfro")
+linear_damp = 2.0
+angular_damp = 2.0
+
+[node name="Body02" type="MeshInstance3D" parent="Body05"]
+transform = Transform3D(0.999983, 0, 0, 0, 0.999996, 0, 0, 0, 0.999986, 0, 0, -0.000149965)
+mesh = SubResource("SphereMesh_k6glw")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Body05"]
+shape = SubResource("SphereShape3D_it284")
+
+[node name="Body06" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.6)
+collision_layer = 2
+mass = 2.29
+physics_material_override = ExtResource("4_0vfro")
+linear_damp = 2.0
+angular_damp = 2.0
+
+[node name="Body02" type="MeshInstance3D" parent="Body06"]
+transform = Transform3D(0.999983, 0, 0, 0, 0.999996, 0, 0, 0, 0.999986, 0, 0, -0.000149965)
+mesh = SubResource("SphereMesh_k6glw")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Body06"]
+shape = SubResource("SphereShape3D_it284")
+
+[node name="Body07" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7)
+collision_layer = 2
+mass = 2.29
+physics_material_override = ExtResource("4_0vfro")
+linear_damp = 2.0
+angular_damp = 2.0
+
+[node name="Body02" type="MeshInstance3D" parent="Body07"]
+transform = Transform3D(0.999983, 0, 0, 0, 0.999996, 0, 0, 0, 0.999986, 0, 0, -0.000149965)
+mesh = SubResource("SphereMesh_k6glw")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Body07"]
+shape = SubResource("SphereShape3D_it284")
+
+[node name="Body08" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.8)
+collision_layer = 2
+mass = 2.29
+physics_material_override = ExtResource("4_0vfro")
+linear_damp = 2.0
+angular_damp = 2.0
+
+[node name="Body02" type="MeshInstance3D" parent="Body08"]
+transform = Transform3D(0.999983, 0, 0, 0, 0.999996, 0, 0, 0, 0.999986, 0, 0, -0.000149965)
+mesh = SubResource("SphereMesh_k6glw")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Body08"]
+shape = SubResource("SphereShape3D_it284")
+
+[node name="Body09" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.9)
+collision_layer = 2
+mass = 2.29
+physics_material_override = ExtResource("4_0vfro")
+linear_damp = 2.0
+angular_damp = 2.0
+
+[node name="Body02" type="MeshInstance3D" parent="Body09"]
+transform = Transform3D(0.999983, 0, 0, 0, 0.999996, 0, 0, 0, 0.999986, 0, 0, -0.000149965)
+mesh = SubResource("SphereMesh_k6glw")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Body09"]
+shape = SubResource("SphereShape3D_it284")
+
+[node name="Tail" type="MeshInstance3D" parent="Body09"]
+transform = Transform3D(-0.999786, 8.06527e-09, 8.66534e-08, -8.06698e-09, 0.982816, -0.184551, -8.66532e-08, -0.184512, -0.982609, 4.01547e-09, 0.145196, -0.0172669)
 mesh = SubResource("PrismMesh_nlx6u")
+skeleton = NodePath("")
 
-[node name="Light" type="PathFollow3D" parent="SlugBody"]
-transform = Transform3D(0.999986, 0, 0, 0, 1, 0, 0, 0, 0.999986, 0, 0, 0.42387)
-progress = 0.571724
+[node name="Joints" type="Node3D" parent="."]
 
-[node name="SpotLight3D" type="SpotLight3D" parent="SlugBody/Light"]
-transform = Transform3D(1.00001, 0, -1.77636e-15, 0, -4.37117e-08, 1, -1.49012e-08, -1.00001, -4.3712e-08, 0, 0.571, 0)
-light_indirect_energy = 2.454
-light_specular = 3.071
-spot_range = 1.522
-spot_attenuation = -2.63
-spot_angle = 66.71
-spot_angle_attenuation = 0.329877
+[node name="Neck" type="Generic6DOFJoint3D" parent="Joints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.05)
+node_a = NodePath("../../Head")
+node_b = NodePath("../../Body01")
+linear_limit_x/upper_distance = 0.025
+linear_limit_x/damping = 0.9
+linear_limit_z/upper_distance = 0.025
+linear_limit_z/damping = 0.9
+linear_spring_x/stiffness = 6.0
+linear_spring_x/damping = 3.0
+linear_spring_x/equilibrium_point = 0.025
+linear_spring_z/stiffness = 6.0
+linear_spring_z/damping = 3.0
+linear_spring_z/equilibrium_point = 0.025
+
+[node name="Generic6DOFJoint3D2" type="Generic6DOFJoint3D" parent="Joints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.15)
+node_a = NodePath("../../Body01")
+node_b = NodePath("../../Body02")
+linear_limit_x/upper_distance = 0.025
+linear_limit_x/damping = 0.9
+linear_limit_z/upper_distance = 0.025
+linear_limit_z/damping = 0.9
+linear_spring_x/stiffness = 6.0
+linear_spring_x/damping = 3.0
+linear_spring_x/equilibrium_point = 0.025
+linear_spring_z/stiffness = 6.0
+linear_spring_z/damping = 3.0
+linear_spring_z/equilibrium_point = 0.025
+
+[node name="Generic6DOFJoint3D3" type="Generic6DOFJoint3D" parent="Joints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.25)
+node_a = NodePath("../../Body02")
+node_b = NodePath("../../Body03")
+linear_limit_x/upper_distance = 0.025
+linear_limit_x/damping = 0.9
+linear_limit_z/upper_distance = 0.025
+linear_limit_z/damping = 0.9
+linear_spring_x/stiffness = 6.0
+linear_spring_x/damping = 3.0
+linear_spring_x/equilibrium_point = 0.025
+linear_spring_z/stiffness = 6.0
+linear_spring_z/damping = 3.0
+linear_spring_z/equilibrium_point = 0.025
+
+[node name="Generic6DOFJoint3D4" type="Generic6DOFJoint3D" parent="Joints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.35)
+node_a = NodePath("../../Body03")
+node_b = NodePath("../../Body04")
+linear_limit_x/upper_distance = 0.025
+linear_limit_x/damping = 0.9
+linear_limit_z/upper_distance = 0.025
+linear_limit_z/damping = 0.9
+linear_spring_x/stiffness = 6.0
+linear_spring_x/damping = 3.0
+linear_spring_x/equilibrium_point = 0.025
+linear_spring_z/stiffness = 6.0
+linear_spring_z/damping = 3.0
+linear_spring_z/equilibrium_point = 0.025
+
+[node name="Generic6DOFJoint3D5" type="Generic6DOFJoint3D" parent="Joints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.45)
+node_a = NodePath("../../Body04")
+node_b = NodePath("../../Body05")
+linear_limit_x/upper_distance = 0.025
+linear_limit_x/damping = 0.9
+linear_limit_z/upper_distance = 0.025
+linear_limit_z/damping = 0.9
+linear_spring_x/stiffness = 6.0
+linear_spring_x/damping = 3.0
+linear_spring_x/equilibrium_point = 0.025
+linear_spring_z/stiffness = 6.0
+linear_spring_z/damping = 3.0
+linear_spring_z/equilibrium_point = 0.025
+
+[node name="Generic6DOFJoint3D6" type="Generic6DOFJoint3D" parent="Joints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.55)
+node_a = NodePath("../../Body05")
+node_b = NodePath("../../Body06")
+linear_limit_x/upper_distance = 0.025
+linear_limit_x/damping = 0.9
+linear_limit_z/upper_distance = 0.025
+linear_limit_z/damping = 0.9
+linear_spring_x/stiffness = 6.0
+linear_spring_x/damping = 3.0
+linear_spring_x/equilibrium_point = 0.025
+linear_spring_z/stiffness = 6.0
+linear_spring_z/damping = 3.0
+linear_spring_z/equilibrium_point = 0.025
+
+[node name="Generic6DOFJoint3D7" type="Generic6DOFJoint3D" parent="Joints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.65)
+node_a = NodePath("../../Body06")
+node_b = NodePath("../../Body07")
+linear_limit_x/upper_distance = 0.025
+linear_limit_x/damping = 0.9
+linear_limit_z/upper_distance = 0.025
+linear_limit_z/damping = 0.9
+linear_spring_x/stiffness = 6.0
+linear_spring_x/damping = 3.0
+linear_spring_x/equilibrium_point = 0.025
+linear_spring_z/stiffness = 6.0
+linear_spring_z/damping = 3.0
+linear_spring_z/equilibrium_point = 0.025
+
+[node name="Generic6DOFJoint3D8" type="Generic6DOFJoint3D" parent="Joints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.75)
+node_a = NodePath("../../Body07")
+node_b = NodePath("../../Body08")
+linear_limit_x/upper_distance = 0.025
+linear_limit_x/damping = 0.9
+linear_limit_z/upper_distance = 0.025
+linear_limit_z/damping = 0.9
+linear_spring_x/stiffness = 6.0
+linear_spring_x/damping = 3.0
+linear_spring_x/equilibrium_point = 0.025
+linear_spring_z/stiffness = 6.0
+linear_spring_z/damping = 3.0
+linear_spring_z/equilibrium_point = 0.025
+
+[node name="Generic6DOFJoint3D9" type="Generic6DOFJoint3D" parent="Joints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.85)
+node_a = NodePath("../../Body08")
+node_b = NodePath("../../Body09")
+linear_limit_x/upper_distance = 0.025
+linear_limit_x/damping = 0.9
+linear_limit_z/upper_distance = 0.025
+linear_limit_z/damping = 0.9
+linear_spring_x/stiffness = 6.0
+linear_spring_x/damping = 3.0
+linear_spring_x/equilibrium_point = 0.025
+linear_spring_z/stiffness = 6.0
+linear_spring_z/damping = 3.0
+linear_spring_z/equilibrium_point = 0.025
