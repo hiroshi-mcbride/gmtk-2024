@@ -14,10 +14,10 @@ func _process(delta: float) -> void:
 	var right = camera_3d.global_basis.x
 	
 	# stop player from oozling backwards (slugs cant do this in real life)
-	var input_vector_y_forward_only = input_vector.y * _sigmoid(input_vector.y)
-	if input_vector_y_forward_only > oozle_sigmoid_cutoff: input_vector_y_forward_only = 0
+	#var input_vector_y_forward_only = input_vector.y * _sigmoid(input_vector.y)
+	#if input_vector_y_forward_only > oozle_sigmoid_cutoff: input_vector_y_forward_only = 0
 	
-	relative_input_vector = forward * input_vector_y_forward_only + right * input_vector.x
+	relative_input_vector = forward * -Input.get_action_strength("move_up") + right * input_vector.x
 	relative_input_vector *= oozle_speed
 	relative_input_vector.y = 0.0
 
@@ -37,3 +37,7 @@ func _physics_process(delta: float) -> void:
 
 func _sigmoid(x:float) -> float:
 	return 1 / (1 + pow(2.71828, x))
+
+
+func get_lookat():
+	return $SlugBody/Body10
