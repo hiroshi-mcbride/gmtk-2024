@@ -148,16 +148,3 @@ progress = 1.0
 [node name="Camera3D" type="Camera3D" parent="SlugBody/Camera Follow"]
 transform = Transform3D(-1.00001, -3.05101e-09, -8.73702e-08, 0, 0.999391, -0.0348992, 8.74235e-08, -0.0348995, -0.999399, 0, 0.627, -1.20839)
 fov = 87.0
-
-[node name="Light" type="PathFollow3D" parent="SlugBody"]
-transform = Transform3D(0.999988, 0, 0, 0, 1, 0, 0, 0, 0.999988, 0, 0, 0.42387)
-progress = 0.571724
-
-[node name="SpotLight3D" type="SpotLight3D" parent="SlugBody/Light"]
-transform = Transform3D(1.00001, 0, -1.77636e-15, 0, -4.37117e-08, 1, -1.49012e-08, -1.00001, -4.3712e-08, 0, 0.571, 0)
-light_indirect_energy = 2.454
-light_specular = 3.071
-spot_range = 1.522
-spot_attenuation = -2.63
-spot_angle = 66.71
-spot_angle_attenuation = 0.329877

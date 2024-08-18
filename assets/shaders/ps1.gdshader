@@ -4,7 +4,7 @@ render_mode world_vertex_coords;
 uniform sampler2D texture_albedo : source_color,filter_linear_mipmap,repeat_enable;
 uniform vec4 albedo : source_color;
  
-const float steps = 20.0;
+const float steps = 1500.0;
  
 float snap(float original, float num, float denum) {
     // for snapping vertexes
