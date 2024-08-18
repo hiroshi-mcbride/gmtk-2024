@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://c5cd1sw74yigk"]
+[gd_scene load_steps=9 format=3 uid="uid://c5cd1sw74yigk"]
 
 [ext_resource type="PackedScene" uid="uid://lakqv0fs0gda" path="res://assets/models/world1.glb" id="1_mqybv"]
 [ext_resource type="Texture2D" uid="uid://b4ocu6hrb5jjh" path="res://assets/textures/rustig_koppie_puresky_4k.exr" id="1_seu1q"]
+[ext_resource type="Shader" uid="uid://bqy3eyg6oh8d6" path="res://assets/shaders/water_surface.tres" id="3_3g05g"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ysank"]
 panorama = ExtResource("1_seu1q")
@@ -13,6 +14,15 @@ sky_material = SubResource("PanoramaSkyMaterial_ysank")
 background_mode = 2
 sky = SubResource("Sky_f64s2")
 sky_rotation = Vector3(0, -1.0472, 0)
+ssao_enabled = true
+ssao_radius = 3.57
+ssao_intensity = 1.65
+ssao_detail = 0.92
+glow_enabled = true
+glow_intensity = 2.68
+glow_bloom = 0.05
+glow_hdr_threshold = 0.23
+glow_hdr_scale = 1.2
 fog_mode = 1
 fog_light_color = Color(0.106844, 0.248521, 0.346276, 1)
 fog_density = 0.3579
@@ -29,6 +39,14 @@ volumetric_fog_sky_affect = 0.577
 volumetric_fog_temporal_reprojection_amount = 0.907
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_muq6j"]
+flip_faces = true
+size = Vector2(20, 20)
+subdivide_width = 90
+subdivide_depth = 90
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rfjpp"]
+render_priority = 0
+shader = ExtResource("3_3g05g")
 
 [node name="World1" type="Node3D"]
 
@@ -38,10 +56,11 @@ environment = SubResource("Environment_n4qif")
 [node name="world1" parent="." instance=ExtResource("1_mqybv")]
 
 [node name="test camera" type="Camera3D" parent="."]
-transform = Transform3D(0.125287, -0.188204, -0.974106, 0.0240086, 0.98213, -0.186667, 0.99183, 0, 0.127567, -0.462573, 0.0639882, -0.0947224)
+transform = Transform3D(-0.472544, 0.175693, 0.863617, 0.0240086, 0.98213, -0.186667, -0.88098, -0.0674739, -0.468318, 0.152641, 0.0639882, -0.238367)
 fov = 91.0
 near = 0.013
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(-10, 1.50996e-06, 0, -1.50996e-06, -10, 0, 0, 0, 10, 0, 0.408858, 0)
+[node name="water surface" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.408858, 0)
 mesh = SubResource("PlaneMesh_muq6j")
+surface_material_override/0 = SubResource("ShaderMaterial_rfjpp")
