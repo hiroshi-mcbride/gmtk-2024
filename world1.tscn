@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c5cd1sw74yigk"]
+[gd_scene load_steps=11 format=3 uid="uid://c5cd1sw74yigk"]
 
 [ext_resource type="PackedScene" uid="uid://lakqv0fs0gda" path="res://assets/models/world1.glb" id="1_mqybv"]
 [ext_resource type="Texture2D" uid="uid://b4ocu6hrb5jjh" path="res://assets/textures/rustig_koppie_puresky_4k.exr" id="1_seu1q"]
@@ -19,10 +19,13 @@ ssao_radius = 3.57
 ssao_intensity = 1.65
 ssao_detail = 0.92
 glow_enabled = true
-glow_intensity = 2.68
+glow_intensity = 0.46
+glow_strength = 0.97
 glow_bloom = 0.05
-glow_hdr_threshold = 0.23
-glow_hdr_scale = 1.2
+glow_blend_mode = 1
+glow_hdr_threshold = 0.3
+glow_hdr_scale = 0.15
+glow_hdr_luminance_cap = 14.0
 fog_mode = 1
 fog_light_color = Color(0.106844, 0.248521, 0.346276, 1)
 fog_density = 0.3579
@@ -48,6 +51,15 @@ subdivide_depth = 90
 render_priority = 0
 shader = ExtResource("3_3g05g")
 
+[sub_resource type="TorusMesh" id="TorusMesh_x1nw3"]
+inner_radius = 7.703
+outer_radius = 8.925
+rings = 19
+ring_segments = 3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1y88p"]
+albedo_color = Color(0, 0, 0, 1)
+
 [node name="World1" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -64,3 +76,8 @@ near = 0.013
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.408858, 0)
 mesh = SubResource("PlaneMesh_muq6j")
 surface_material_override/0 = SubResource("ShaderMaterial_rfjpp")
+
+[node name="far water cylinder" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 6.942, 0, 0, 0, 1, 0, -3.16554, 0)
+mesh = SubResource("TorusMesh_x1nw3")
+surface_material_override/0 = SubResource("StandardMaterial3D_1y88p")
