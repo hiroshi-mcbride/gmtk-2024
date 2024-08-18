@@ -67,6 +67,7 @@ albedo_color = Color(0, 0, 0, 1)
 environment = SubResource("Environment_n4qif")
 
 [node name="world1" parent="." instance=ExtResource("1_mqybv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000768244, 3.57628e-07, 0.00548983)
 
 [node name="test camera" type="Camera3D" parent="."]
 transform = Transform3D(-0.472544, 0.175693, 0.863617, 0.0240086, 0.98213, -0.186667, -0.88098, -0.0674739, -0.468318, 0.152641, 0.0639882, -0.238367)
