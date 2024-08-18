@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://cidbu3txii66l"]
+[gd_scene load_steps=8 format=3 uid="uid://cidbu3txii66l"]
 
 [ext_resource type="PackedScene" uid="uid://con3m1bt17csg" path="res://assets/player/player_slug.tscn" id="1_bub2t"]
-[ext_resource type="Script" path="res://src/follow_camera.gd" id="2_3y5k5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_02a0e"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -34,9 +33,7 @@ environment = SubResource("Environment_sjsgh")
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
 
-[node name="PlayerSlug" parent="." node_paths=PackedStringArray("camera_3d") instance=ExtResource("1_bub2t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.90189)
-camera_3d = NodePath("../Camera3D")
+[node name="PlayerSlug" parent="." instance=ExtResource("1_bub2t")]
 oozle_speed = 1.0
 oozle_sigmoid_cutoff = -0.072
 
@@ -49,12 +46,3 @@ mesh = SubResource("BoxMesh_y415c")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 16)
 shape = SubResource("BoxShape3D_veedy")
-
-[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("follow_subject")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.703122, -2.54221)
-script = ExtResource("2_3y5k5")
-follow_subject = NodePath("../PlayerSlug")
-follow_distance = 3.0
-offset = Vector3(0, 1, 0)
-follow_damping = 45.8
-lookat_damping = 42.329
