@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwkbepo5glpuj"]
+
+[ext_resource type="Script" path="res://src/ui/button_signal.gd" id="1_xxljl"]
+
+[node name="BtnSignal" type="Button"]
+custom_minimum_size = Vector2(120, 45)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Start Game"
+script = ExtResource("1_xxljl")
