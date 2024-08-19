@@ -43,6 +43,7 @@ subdivide_height = 1
 subdivide_depth = 5
 
 [node name="PlayerSlug" type="Node3D" node_paths=PackedStringArray("lookat")]
+process_mode = 1
 script = ExtResource("1_7nad0")
 lookat = NodePath("Head")
 
