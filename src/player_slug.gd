@@ -18,14 +18,14 @@ func _process(delta: float) -> void:
 	input_vector = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 
 func _physics_process(delta: float) -> void:
-	var forward = camera_3d.global_basis.z
-	var right = camera_3d.global_basis.x
+	var forward = -global_basis.z
+	var right = global_basis.x
 	
 	# stop player from oozling backwards (slugs cant do this in real life)
 	#var input_vector_y_forward_only = input_vector.y * _sigmoid(input_vector.y)
 	#if input_vector_y_forward_only > oozle_sigmoid_cutoff: input_vector_y_forward_only = 0
 	
-	relative_input_vector = forward * input_vector.y + right * input_vector.x
+	relative_input_vector = forward * Input.get_action_strength("move_up") + right * input_vector.x
 	relative_input_vector.y = 0.0
 	var new_speed = velocity.lerp(relative_input_vector * oozle_speed, 0.9)
 	velocity.y += get_gravity().y * delta
