@@ -156,6 +156,7 @@ light_energy = 2.424
 light_indirect_energy = 1.14
 light_volumetric_fog_energy = 1.155
 light_specular = 3.086
+light_bake_mode = 1
 shadow_enabled = true
 shadow_blur = 1.285
 spot_range = 721.722

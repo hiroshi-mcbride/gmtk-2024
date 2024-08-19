@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://depxsifr08f28"]
+
+[ext_resource type="PackedScene" uid="uid://eva8mktbx00q" path="res://assets/models/world2.glb" id="1_j2gng"]
+[ext_resource type="Texture2D" uid="uid://bge7fiojxace" path="res://assets/textures/moonless_golf_4k.exr" id="1_jf637"]
+[ext_resource type="PackedScene" uid="uid://con3m1bt17csg" path="res://assets/player/player_slug.tscn" id="2_h5mwm"]
+[ext_resource type="Script" path="res://src/camera/camera_switcher.gd" id="4_iem5g"]
+[ext_resource type="Script" path="res://src/camera/follow_camera.gd" id="5_c8ccg"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_484q1"]
+panorama = ExtResource("1_jf637")
+energy_multiplier = 0.05
+
+[sub_resource type="Sky" id="Sky_tges3"]
+sky_material = SubResource("PanoramaSkyMaterial_484q1")
+
+[sub_resource type="Environment" id="Environment_7bvhi"]
+background_mode = 1
+background_color = Color(0.190636, 0.284166, 0.444717, 1)
+background_energy_multiplier = 0.2
+sky = SubResource("Sky_tges3")
+sky_rotation = Vector3(3.3074, -6.77188, 0)
+fog_enabled = true
+fog_light_color = Color(0.0433506, 0.0589487, 0.102505, 1)
+fog_density = 0.057
+fog_sky_affect = 0.758
+
+[node name="World2" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7bvhi")
+
+[node name="world2" parent="." instance=ExtResource("1_j2gng")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+
+[node name="PlayerSlug" parent="." node_paths=PackedStringArray("camera_3d") instance=ExtResource("2_h5mwm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.0919, 79.5122, -64.3422)
+camera_3d = NodePath("../CameraSwitcher/Cam1")
+
+[node name="CameraSwitcher" type="Node3D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("4_iem5g")
+
+[node name="Cam1" type="Camera3D" parent="CameraSwitcher" node_paths=PackedStringArray("follow_subject")]
+transform = Transform3D(-1, 0.000181033, -8.53352e-05, 0.000181007, 1, 0.000307085, 8.53908e-05, 0.00030707, -1, 38.7727, 43.4249, -91.7352)
+current = true
+script = ExtResource("5_c8ccg")
+follow_subject = NodePath("../../PlayerSlug")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 54.5796, 125.339, -67.7454)
+light_energy = 1.24
+light_bake_mode = 1
+shadow_enabled = true
+spot_range = 171.113
+spot_attenuation = -0.25
+spot_angle = 32.2
+spot_angle_attenuation = 5.85635
+
+[editable path="PlayerSlug"]
