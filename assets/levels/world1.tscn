@@ -1,6 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://c5cd1sw74yigk"]
+[gd_scene load_steps=26 format=3 uid="uid://c5cd1sw74yigk"]
 
 [ext_resource type="PackedScene" uid="uid://lakqv0fs0gda" path="res://assets/models/world1.glb" id="1_mqybv"]
+[ext_resource type="Script" path="res://src/world.gd" id="1_q0m55"]
 [ext_resource type="Texture2D" uid="uid://b4ocu6hrb5jjh" path="res://assets/textures/rustig_koppie_puresky_4k.exr" id="1_seu1q"]
 [ext_resource type="AudioStream" uid="uid://676nyd4pj8qk" path="res://assets/audio/gmtk2024_1-002.mp3" id="2_6q6pt"]
 [ext_resource type="Shader" uid="uid://bqy3eyg6oh8d6" path="res://assets/shaders/water_surface.tres" id="3_3g05g"]
@@ -91,6 +92,7 @@ size = Vector3(10.9389, 20.0917, 63.3567)
 size = Vector3(72.4119, 20.0917, 63.3567)
 
 [node name="World1" type="Node3D"]
+script = ExtResource("1_q0m55")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_n4qif")
