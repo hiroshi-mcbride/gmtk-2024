@@ -1,7 +1,7 @@
 class_name SceneManager extends Node
 
 const MAIN_MENU_SCENE : PackedScene = preload("res://assets/ui/main_menu.tscn")
-const WORLD_SCENE : PackedScene = preload("res://world1.tscn")
+const WORLD_SCENE : PackedScene = preload("res://assets/levels/world1.tscn")
 const PAUSE_MENU_SCENE : PackedScene = preload("res://assets/ui/pause_menu.tscn")
 
 @onready var canvas_layer = $CanvasLayer
