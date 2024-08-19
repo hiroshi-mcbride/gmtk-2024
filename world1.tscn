@@ -1,11 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://c5cd1sw74yigk"]
+[gd_scene load_steps=18 format=3 uid="uid://c5cd1sw74yigk"]
 
 [ext_resource type="PackedScene" uid="uid://lakqv0fs0gda" path="res://assets/models/world1.glb" id="1_mqybv"]
 [ext_resource type="Texture2D" uid="uid://b4ocu6hrb5jjh" path="res://assets/textures/rustig_koppie_puresky_4k.exr" id="1_seu1q"]
+[ext_resource type="AudioStream" uid="uid://676nyd4pj8qk" path="res://assets/music/gmtk2024_1-002.mp3" id="2_6q6pt"]
 [ext_resource type="Shader" uid="uid://bqy3eyg6oh8d6" path="res://assets/shaders/water_surface.tres" id="3_3g05g"]
 [ext_resource type="ArrayMesh" uid="uid://c45aas0rxce1q" path="res://assets/models/coral1.obj" id="3_uqh8w"]
 [ext_resource type="PackedScene" uid="uid://con3m1bt17csg" path="res://assets/player/player_slug.tscn" id="4_ixh8q"]
 [ext_resource type="Texture2D" uid="uid://bsd2avflyujmb" path="res://assets/textures/coral1.png" id="4_pwxc0"]
+[ext_resource type="Script" path="res://src/camera_switcher.gd" id="7_je5a7"]
 [ext_resource type="Script" path="res://src/follow_camera.gd" id="7_pc0v5"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ysank"]
@@ -76,6 +78,11 @@ albedo_color = Color(0, 0, 0, 1)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_n4qif")
 
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_6q6pt")
+volume_db = -11.0
+autoplay = true
+
 [node name="world1" parent="." instance=ExtResource("1_mqybv")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0.000768244, 3.57628e-07, 0.00548983)
 
@@ -107,14 +114,9 @@ mesh = SubResource("TorusMesh_x1nw3")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_1y88p")
 
-[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("follow_subject")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -15.5963, 0.51521, 29.8041)
-script = ExtResource("7_pc0v5")
-follow_subject = NodePath("../PlayerSlug")
-
 [node name="PlayerSlug" parent="." node_paths=PackedStringArray("camera_3d") instance=ExtResource("4_ixh8q")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -22.5911, -6.0665, 24.6946)
-camera_3d = NodePath("../Camera3D")
+camera_3d = NodePath("../CameraSwitcher/Cam1")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(-4.34806e-08, 0.650893, -0.759169, -4.48637e-09, 0.759169, 0.650893, 1, 3.17071e-08, -3.0089e-08, -146.655, 94.7704, -17.6733)
@@ -128,9 +130,17 @@ spot_range = 721.722
 spot_attenuation = 0.39
 spot_angle = 27.98
 
-[node name="test camera" type="Camera3D" parent="."]
-transform = Transform3D(-0.472544, 0.175693, 0.863617, 0.0240086, 0.98213, -0.186666, -0.88098, -0.0674739, -0.468318, 7.59441, 3.19939, -12.1874)
-fov = 91.0
-near = 0.013
+[node name="CameraSwitcher" type="Node3D" parent="."]
+script = ExtResource("7_je5a7")
+
+[node name="Cam1" type="Camera3D" parent="CameraSwitcher" node_paths=PackedStringArray("follow_subject")]
+transform = Transform3D(-1, 0.000181033, -8.53352e-05, 0.000181007, 1, 0.000307085, 8.53908e-05, 0.00030707, -1, -15.5963, -1.9756, 29.8041)
+script = ExtResource("7_pc0v5")
+follow_subject = NodePath("../../PlayerSlug")
+
+[node name="Cam2" type="Camera3D" parent="CameraSwitcher" node_paths=PackedStringArray("follow_subject")]
+transform = Transform3D(-1, 0.000181033, -8.53352e-05, 0.000181007, 1, 0.000307085, 8.53908e-05, 0.00030707, -1, -2.89849, 5.32884, 12.9522)
+script = ExtResource("7_pc0v5")
+follow_subject = NodePath("../../PlayerSlug")
 
 [editable path="PlayerSlug"]
