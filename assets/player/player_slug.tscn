@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://src/player/player_container.gd" id="1_7nad0"]
 [ext_resource type="Shader" path="res://assets/shaders/ps1.gdshader" id="1_25jiy"]
 [ext_resource type="Script" path="res://src/player/player_slug.gd" id="1_86usw"]
-[ext_resource type="PhysicsMaterial" uid="uid://vvbbctc44vsy" path="res://assets/player/player_body.physmat.tres" id="4_0vfro"]
+[ext_resource type="PhysicsMaterial" path="res://assets/player/player_body.physmat.tres" id="4_0vfro"]
 [ext_resource type="AudioStream" uid="uid://b5nynfb6vam0x" path="res://assets/audio/oozling.ogg" id="4_rsjul"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_it284"]
