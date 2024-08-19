@@ -79,13 +79,18 @@ environment = SubResource("Environment_n4qif")
 [node name="world1" parent="." instance=ExtResource("1_mqybv")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0.000768244, 3.57628e-07, 0.00548983)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="world1"]
+[node name="Coral1" type="MeshInstance3D" parent="world1"]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0.00955182, 0.0224705, 0)
 mesh = ExtResource("3_uqh8w")
 surface_material_override/0 = SubResource("StandardMaterial3D_m1cu7")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="world1"]
+[node name="Coral2" type="MeshInstance3D" parent="world1"]
 transform = Transform3D(0.00518814, 0, 0.0076482, 0.000856443, 0.0127524, -0.000895835, -0.00609932, 0.00179065, 0.00637985, -0.0292366, 0.0168826, -0.0290093)
+mesh = ExtResource("3_uqh8w")
+surface_material_override/0 = SubResource("StandardMaterial3D_m1cu7")
+
+[node name="Coral3" type="MeshInstance3D" parent="world1"]
+transform = Transform3D(0.0118648, -0.00143663, 0.00172578, 0.0012762, 0.0148543, -0.00134376, -0.00126425, 0.00151215, 0.0148397, -0.426718, -0.118569, 0.528014)
 mesh = ExtResource("3_uqh8w")
 surface_material_override/0 = SubResource("StandardMaterial3D_m1cu7")
 
@@ -102,18 +107,13 @@ mesh = SubResource("TorusMesh_x1nw3")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_1y88p")
 
-[node name="test camera" type="Camera3D" parent="world1"]
-transform = Transform3D(-0.472544, 0.175693, 0.863617, 0.0240086, 0.98213, -0.186666, -0.88098, -0.0674739, -0.468318, 0.151873, 0.0639878, -0.243857)
-fov = 91.0
-near = 0.013
-
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("follow_subject")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0135803, 1.53514, -2.50128)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -15.5963, 0.51521, 29.8041)
 script = ExtResource("7_pc0v5")
 follow_subject = NodePath("../PlayerSlug")
 
 [node name="PlayerSlug" parent="." node_paths=PackedStringArray("camera_3d") instance=ExtResource("4_ixh8q")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 1.94621, -10.713)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -22.5911, -6.0665, 24.6946)
 camera_3d = NodePath("../Camera3D")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
@@ -127,5 +127,10 @@ shadow_blur = 1.285
 spot_range = 721.722
 spot_attenuation = 0.39
 spot_angle = 27.98
+
+[node name="test camera" type="Camera3D" parent="."]
+transform = Transform3D(-0.472544, 0.175693, 0.863617, 0.0240086, 0.98213, -0.186666, -0.88098, -0.0674739, -0.468318, 7.59441, 3.19939, -12.1874)
+fov = 91.0
+near = 0.013
 
 [editable path="PlayerSlug"]
