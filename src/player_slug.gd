@@ -1,7 +1,8 @@
 extends CharacterBody3D
 
-@export var camera_3d: Camera3D
-@export var oozle_speed: float
+@export var camera_3d:Camera3D
+@export var oozle_speed:float
+@export var turn_speed:float
 @export_range(-1,1) var oozle_sigmoid_cutoff: float
 @onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
@@ -25,7 +26,7 @@ func _physics_process(delta: float) -> void:
 	#var input_vector_y_forward_only = input_vector.y * _sigmoid(input_vector.y)
 	#if input_vector_y_forward_only > oozle_sigmoid_cutoff: input_vector_y_forward_only = 0
 	
-	relative_input_vector = forward * Input.get_action_strength("move_up") + right * input_vector.x
+	relative_input_vector = forward * Input.get_action_strength("move_up")
 	relative_input_vector.y = 0.0
 	var new_speed = velocity.lerp(relative_input_vector * oozle_speed, 0.9)
 	velocity.y += get_gravity().y * delta
@@ -42,10 +43,10 @@ func _physics_process(delta: float) -> void:
 	
 	#rotation.x = -global_basis.y.cross(get_floor_normal()).x
 	
-	if input_vector.length_squared() > 0:
-		var dir = Vector2(velocity.x, velocity.z)
-		var target_angle = -atan2(velocity.z, velocity.x) - deg_to_rad(90)
-		rotation.y = lerp_angle(rotation.y, target_angle, delta * 10.0)
+	if velocity.length_squared() > 1:
+		rotate_y(-PI * delta * input_vector.x * turn_speed)
+	else:
+		rotate_y(-PI * delta * input_vector.x * turn_speed * 0.65)
 	
 	
 	#print(velocity)
