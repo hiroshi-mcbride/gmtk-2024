@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://c5cd1sw74yigk"]
+[gd_scene load_steps=19 format=3 uid="uid://c5cd1sw74yigk"]
 
 [ext_resource type="PackedScene" uid="uid://lakqv0fs0gda" path="res://assets/models/world1.glb" id="1_mqybv"]
 [ext_resource type="Texture2D" uid="uid://b4ocu6hrb5jjh" path="res://assets/textures/rustig_koppie_puresky_4k.exr" id="1_seu1q"]
 [ext_resource type="AudioStream" uid="uid://676nyd4pj8qk" path="res://assets/music/gmtk2024_1-002.mp3" id="2_6q6pt"]
 [ext_resource type="Shader" uid="uid://bqy3eyg6oh8d6" path="res://assets/shaders/water_surface.tres" id="3_3g05g"]
+[ext_resource type="AudioStream" uid="uid://dm577o1c45we2" path="res://assets/music/WATRFlow_Rapid Water Movement Next to Waterfall, Vibrations, Drone, Rumble_BOLT_Immersive Creek_Geofon.wav" id="3_h678p"]
 [ext_resource type="ArrayMesh" uid="uid://c45aas0rxce1q" path="res://assets/models/coral1.obj" id="3_uqh8w"]
 [ext_resource type="PackedScene" uid="uid://con3m1bt17csg" path="res://assets/player/player_slug.tscn" id="4_ixh8q"]
 [ext_resource type="Texture2D" uid="uid://bsd2avflyujmb" path="res://assets/textures/coral1.png" id="4_pwxc0"]
@@ -81,6 +82,11 @@ environment = SubResource("Environment_n4qif")
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_6q6pt")
 volume_db = -11.0
+autoplay = true
+
+[node name="Ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_h678p")
+volume_db = -16.0
 autoplay = true
 
 [node name="world1" parent="." instance=ExtResource("1_mqybv")]
