@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-var camera_3d: Camera3D
+@export var camera_3d: Camera3D
 @export var oozle_speed: float
 @export_range(-1,1) var oozle_sigmoid_cutoff: float
 @onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
