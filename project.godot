@@ -60,6 +60,10 @@ interact={
 ]
 }
 
+[physics]
+
+3d/default_gravity=5.9
+
 [rendering]
 
 environment/defaults/default_clear_color=Color(0.0467838, 0.0479182, 0.0854548, 1)

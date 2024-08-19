@@ -86,11 +86,10 @@ parameters/looping = true
 [node name="Body01" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
 collision_layer = 2
-mass = 2.29
+mass = 5.0
 physics_material_override = ExtResource("4_0vfro")
-gravity_scale = 0.0
-linear_damp = 13.112
-angular_damp = 13.111
+linear_damp = 6.0
+angular_damp = 8.0
 
 [node name="Body02" type="MeshInstance3D" parent="Body01"]
 transform = Transform3D(0.999983, 0, 0, 0, 0.999996, 0, 0, 0, 0.999986, 0, 0, -0.000149965)
@@ -103,11 +102,11 @@ shape = SubResource("SphereShape3D_it284")
 [node name="Body02" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2)
 collision_layer = 2
-mass = 2.29
+mass = 5.0
 physics_material_override = ExtResource("4_0vfro")
-gravity_scale = 0.0
-linear_damp = 13.112
-angular_damp = 13.111
+gravity_scale = 0.113
+linear_damp = 6.0
+angular_damp = 8.0
 
 [node name="Body02" type="MeshInstance3D" parent="Body02"]
 transform = Transform3D(0.999983, 0, 0, 0, 0.999996, 0, 0, 0, 0.999986, 0, 0, -0.000149965)
@@ -120,11 +119,11 @@ shape = SubResource("SphereShape3D_it284")
 [node name="Body03" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.3)
 collision_layer = 2
-mass = 2.29
+mass = 5.0
 physics_material_override = ExtResource("4_0vfro")
-gravity_scale = 0.0
-linear_damp = 13.112
-angular_damp = 13.111
+gravity_scale = 0.113
+linear_damp = 6.0
+angular_damp = 8.0
 
 [node name="Body02" type="MeshInstance3D" parent="Body03"]
 transform = Transform3D(0.999983, 0, 0, 0, 0.999996, 0, 0, 0, 0.999986, 0, 0, -0.000149965)
@@ -137,11 +136,11 @@ shape = SubResource("SphereShape3D_it284")
 [node name="Body04" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4)
 collision_layer = 2
-mass = 2.29
+mass = 5.0
 physics_material_override = ExtResource("4_0vfro")
-gravity_scale = 0.0
-linear_damp = 13.112
-angular_damp = 13.111
+gravity_scale = 0.113
+linear_damp = 6.0
+angular_damp = 8.0
 
 [node name="Body02" type="MeshInstance3D" parent="Body04"]
 transform = Transform3D(0.999983, 0, 0, 0, 0.999996, 0, 0, 0, 0.999986, 0, 0, -0.000149965)
@@ -154,11 +153,11 @@ shape = SubResource("SphereShape3D_it284")
 [node name="Body05" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 collision_layer = 2
-mass = 2.29
+mass = 5.0
 physics_material_override = ExtResource("4_0vfro")
-gravity_scale = 0.0
-linear_damp = 13.112
-angular_damp = 13.111
+gravity_scale = 0.113
+linear_damp = 6.0
+angular_damp = 8.0
 
 [node name="Body02" type="MeshInstance3D" parent="Body05"]
 transform = Transform3D(0.999983, 0, 0, 0, 0.999996, 0, 0, 0, 0.999986, 0, 0, -0.000149965)
@@ -171,11 +170,11 @@ shape = SubResource("SphereShape3D_it284")
 [node name="Body06" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.6)
 collision_layer = 2
-mass = 2.29
+mass = 5.0
 physics_material_override = ExtResource("4_0vfro")
-gravity_scale = 0.0
-linear_damp = 13.112
-angular_damp = 13.111
+gravity_scale = 0.113
+linear_damp = 6.0
+angular_damp = 8.0
 
 [node name="Body02" type="MeshInstance3D" parent="Body06"]
 transform = Transform3D(0.999983, 0, 0, 0, 0.999996, 0, 0, 0, 0.999986, 0, 0, -0.000149965)
@@ -188,11 +187,11 @@ shape = SubResource("SphereShape3D_it284")
 [node name="Body07" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7)
 collision_layer = 2
-mass = 2.29
+mass = 5.0
 physics_material_override = ExtResource("4_0vfro")
-gravity_scale = 0.0
-linear_damp = 13.112
-angular_damp = 13.111
+gravity_scale = 0.113
+linear_damp = 6.0
+angular_damp = 8.0
 
 [node name="Body02" type="MeshInstance3D" parent="Body07"]
 transform = Transform3D(0.999983, 0, 0, 0, 0.999996, 0, 0, 0, 0.999986, 0, 0, -0.000149965)
@@ -205,11 +204,11 @@ shape = SubResource("SphereShape3D_it284")
 [node name="Body08" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.8)
 collision_layer = 2
-mass = 2.29
+mass = 5.0
 physics_material_override = ExtResource("4_0vfro")
-gravity_scale = 0.0
-linear_damp = 13.112
-angular_damp = 13.111
+gravity_scale = 0.113
+linear_damp = 6.0
+angular_damp = 8.0
 
 [node name="Body02" type="MeshInstance3D" parent="Body08"]
 transform = Transform3D(0.999983, 0, 0, 0, 0.999996, 0, 0, 0, 0.999986, 0, 0, -0.000149965)
@@ -222,11 +221,11 @@ shape = SubResource("SphereShape3D_it284")
 [node name="Body09" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.9)
 collision_layer = 2
-mass = 2.29
+mass = 5.0
 physics_material_override = ExtResource("4_0vfro")
-gravity_scale = 0.0
-linear_damp = 13.112
-angular_damp = 13.111
+gravity_scale = 0.113
+linear_damp = 6.0
+angular_damp = 8.0
 
 [node name="Body02" type="MeshInstance3D" parent="Body09"]
 transform = Transform3D(0.999983, 0, 0, 0, 0.999996, 0, 0, 0, 0.999986, 0, 0, -0.000149965)
@@ -248,29 +247,43 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.05)
 node_a = NodePath("../../Head")
 node_b = NodePath("../../Body01")
 linear_limit_x/upper_distance = 0.025
-linear_limit_x/damping = 0.9
+linear_limit_x/softness = 1.0
+linear_limit_x/restitution = 1.0
+linear_limit_y/softness = 1.0
+linear_limit_y/restitution = 1.0
 linear_limit_z/upper_distance = 0.025
-linear_limit_z/damping = 0.9
-linear_spring_x/stiffness = 6.0
-linear_spring_x/damping = 3.0
-linear_spring_x/equilibrium_point = 0.025
-linear_spring_z/stiffness = 6.0
-linear_spring_z/damping = 3.0
-linear_spring_z/equilibrium_point = 0.025
+linear_limit_z/softness = 1.0
+linear_limit_z/restitution = 1.0
+linear_spring_x/enabled = true
+linear_spring_x/stiffness = 0.1
+linear_spring_x/damping = 1.0
+linear_spring_y/enabled = true
+linear_spring_y/damping = 1.0
+linear_spring_z/enabled = true
+linear_spring_z/stiffness = 0.1
+linear_spring_z/damping = 1.0
 
 [node name="Generic6DOFJoint3D2" type="Generic6DOFJoint3D" parent="Joints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.15)
 node_a = NodePath("../../Body01")
 node_b = NodePath("../../Body02")
 linear_limit_x/upper_distance = 0.025
+linear_limit_x/softness = 1.0
 linear_limit_x/damping = 0.9
+linear_limit_y/softness = 1.0
 linear_limit_z/upper_distance = 0.025
+linear_limit_z/softness = 1.0
 linear_limit_z/damping = 0.9
-linear_spring_x/stiffness = 6.0
-linear_spring_x/damping = 3.0
+linear_spring_x/enabled = true
+linear_spring_x/stiffness = 0.1
+linear_spring_x/damping = 0.1
 linear_spring_x/equilibrium_point = 0.025
-linear_spring_z/stiffness = 6.0
-linear_spring_z/damping = 3.0
+linear_spring_y/enabled = true
+linear_spring_y/stiffness = 0.1
+linear_spring_y/damping = 0.1
+linear_spring_z/enabled = true
+linear_spring_z/stiffness = 0.1
+linear_spring_z/damping = 0.1
 linear_spring_z/equilibrium_point = 0.025
 
 [node name="Generic6DOFJoint3D3" type="Generic6DOFJoint3D" parent="Joints"]
@@ -278,14 +291,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.25)
 node_a = NodePath("../../Body02")
 node_b = NodePath("../../Body03")
 linear_limit_x/upper_distance = 0.025
+linear_limit_x/softness = 1.0
 linear_limit_x/damping = 0.9
+linear_limit_y/softness = 1.0
 linear_limit_z/upper_distance = 0.025
+linear_limit_z/softness = 1.0
 linear_limit_z/damping = 0.9
-linear_spring_x/stiffness = 6.0
-linear_spring_x/damping = 3.0
+linear_spring_x/enabled = true
+linear_spring_x/stiffness = 0.1
+linear_spring_x/damping = 0.1
 linear_spring_x/equilibrium_point = 0.025
-linear_spring_z/stiffness = 6.0
-linear_spring_z/damping = 3.0
+linear_spring_y/enabled = true
+linear_spring_y/stiffness = 0.1
+linear_spring_y/damping = 0.1
+linear_spring_z/enabled = true
+linear_spring_z/stiffness = 0.1
+linear_spring_z/damping = 0.1
 linear_spring_z/equilibrium_point = 0.025
 
 [node name="Generic6DOFJoint3D4" type="Generic6DOFJoint3D" parent="Joints"]
@@ -293,14 +314,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.35)
 node_a = NodePath("../../Body03")
 node_b = NodePath("../../Body04")
 linear_limit_x/upper_distance = 0.025
+linear_limit_x/softness = 1.0
 linear_limit_x/damping = 0.9
+linear_limit_y/softness = 1.0
 linear_limit_z/upper_distance = 0.025
+linear_limit_z/softness = 1.0
 linear_limit_z/damping = 0.9
-linear_spring_x/stiffness = 6.0
-linear_spring_x/damping = 3.0
+linear_spring_x/enabled = true
+linear_spring_x/stiffness = 0.1
+linear_spring_x/damping = 0.1
 linear_spring_x/equilibrium_point = 0.025
-linear_spring_z/stiffness = 6.0
-linear_spring_z/damping = 3.0
+linear_spring_y/enabled = true
+linear_spring_y/stiffness = 0.1
+linear_spring_y/damping = 0.1
+linear_spring_z/enabled = true
+linear_spring_z/stiffness = 0.1
+linear_spring_z/damping = 0.1
 linear_spring_z/equilibrium_point = 0.025
 
 [node name="Generic6DOFJoint3D5" type="Generic6DOFJoint3D" parent="Joints"]
@@ -308,14 +337,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.45)
 node_a = NodePath("../../Body04")
 node_b = NodePath("../../Body05")
 linear_limit_x/upper_distance = 0.025
+linear_limit_x/softness = 1.0
 linear_limit_x/damping = 0.9
+linear_limit_y/softness = 1.0
 linear_limit_z/upper_distance = 0.025
+linear_limit_z/softness = 1.0
 linear_limit_z/damping = 0.9
-linear_spring_x/stiffness = 6.0
-linear_spring_x/damping = 3.0
+linear_spring_x/enabled = true
+linear_spring_x/stiffness = 0.1
+linear_spring_x/damping = 0.1
 linear_spring_x/equilibrium_point = 0.025
-linear_spring_z/stiffness = 6.0
-linear_spring_z/damping = 3.0
+linear_spring_y/enabled = true
+linear_spring_y/stiffness = 0.1
+linear_spring_y/damping = 0.1
+linear_spring_z/enabled = true
+linear_spring_z/stiffness = 0.1
+linear_spring_z/damping = 0.1
 linear_spring_z/equilibrium_point = 0.025
 
 [node name="Generic6DOFJoint3D6" type="Generic6DOFJoint3D" parent="Joints"]
@@ -323,14 +360,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.55)
 node_a = NodePath("../../Body05")
 node_b = NodePath("../../Body06")
 linear_limit_x/upper_distance = 0.025
+linear_limit_x/softness = 1.0
 linear_limit_x/damping = 0.9
+linear_limit_y/softness = 1.0
 linear_limit_z/upper_distance = 0.025
+linear_limit_z/softness = 1.0
 linear_limit_z/damping = 0.9
-linear_spring_x/stiffness = 6.0
-linear_spring_x/damping = 3.0
+linear_spring_x/enabled = true
+linear_spring_x/stiffness = 0.1
+linear_spring_x/damping = 0.1
 linear_spring_x/equilibrium_point = 0.025
-linear_spring_z/stiffness = 6.0
-linear_spring_z/damping = 3.0
+linear_spring_y/enabled = true
+linear_spring_y/stiffness = 0.1
+linear_spring_y/damping = 0.1
+linear_spring_z/enabled = true
+linear_spring_z/stiffness = 0.1
+linear_spring_z/damping = 0.1
 linear_spring_z/equilibrium_point = 0.025
 
 [node name="Generic6DOFJoint3D7" type="Generic6DOFJoint3D" parent="Joints"]
@@ -338,14 +383,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.65)
 node_a = NodePath("../../Body06")
 node_b = NodePath("../../Body07")
 linear_limit_x/upper_distance = 0.025
+linear_limit_x/softness = 1.0
 linear_limit_x/damping = 0.9
+linear_limit_y/softness = 1.0
 linear_limit_z/upper_distance = 0.025
+linear_limit_z/softness = 1.0
 linear_limit_z/damping = 0.9
-linear_spring_x/stiffness = 6.0
-linear_spring_x/damping = 3.0
+linear_spring_x/enabled = true
+linear_spring_x/stiffness = 0.1
+linear_spring_x/damping = 0.1
 linear_spring_x/equilibrium_point = 0.025
-linear_spring_z/stiffness = 6.0
-linear_spring_z/damping = 3.0
+linear_spring_y/enabled = true
+linear_spring_y/stiffness = 0.1
+linear_spring_y/damping = 0.1
+linear_spring_z/enabled = true
+linear_spring_z/stiffness = 0.1
+linear_spring_z/damping = 0.1
 linear_spring_z/equilibrium_point = 0.025
 
 [node name="Generic6DOFJoint3D8" type="Generic6DOFJoint3D" parent="Joints"]
@@ -353,14 +406,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.75)
 node_a = NodePath("../../Body07")
 node_b = NodePath("../../Body08")
 linear_limit_x/upper_distance = 0.025
+linear_limit_x/softness = 1.0
 linear_limit_x/damping = 0.9
+linear_limit_y/softness = 1.0
 linear_limit_z/upper_distance = 0.025
+linear_limit_z/softness = 1.0
 linear_limit_z/damping = 0.9
-linear_spring_x/stiffness = 6.0
-linear_spring_x/damping = 3.0
+linear_spring_x/enabled = true
+linear_spring_x/stiffness = 0.1
+linear_spring_x/damping = 0.1
 linear_spring_x/equilibrium_point = 0.025
-linear_spring_z/stiffness = 6.0
-linear_spring_z/damping = 3.0
+linear_spring_y/enabled = true
+linear_spring_y/stiffness = 0.1
+linear_spring_y/damping = 0.1
+linear_spring_z/enabled = true
+linear_spring_z/stiffness = 0.1
+linear_spring_z/damping = 0.1
 linear_spring_z/equilibrium_point = 0.025
 
 [node name="Generic6DOFJoint3D9" type="Generic6DOFJoint3D" parent="Joints"]
@@ -368,12 +429,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.85)
 node_a = NodePath("../../Body08")
 node_b = NodePath("../../Body09")
 linear_limit_x/upper_distance = 0.025
+linear_limit_x/softness = 1.0
 linear_limit_x/damping = 0.9
+linear_limit_y/softness = 1.0
 linear_limit_z/upper_distance = 0.025
+linear_limit_z/softness = 1.0
 linear_limit_z/damping = 0.9
-linear_spring_x/stiffness = 6.0
-linear_spring_x/damping = 3.0
+linear_spring_x/enabled = true
+linear_spring_x/stiffness = 0.1
+linear_spring_x/damping = 0.1
 linear_spring_x/equilibrium_point = 0.025
-linear_spring_z/stiffness = 6.0
-linear_spring_z/damping = 3.0
+linear_spring_y/enabled = true
+linear_spring_y/stiffness = 0.1
+linear_spring_y/damping = 0.1
+linear_spring_z/enabled = true
+linear_spring_z/stiffness = 0.1
+linear_spring_z/damping = 0.1
 linear_spring_z/equilibrium_point = 0.025

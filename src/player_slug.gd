@@ -30,6 +30,7 @@ func _physics_process(delta: float) -> void:
 	relative_input_vector.y = 0.0
 	var new_speed = velocity.lerp(relative_input_vector * oozle_speed, 0.9)
 	velocity.y += get_gravity().y * delta
+	velocity.y = clampf(velocity.y, -8, oozle_speed)
 	velocity = Vector3(new_speed.x, velocity.y, new_speed.z)
 	var volume = remap(velocity.length(), 0, 1, -80, -2)
 	move_and_slide()
