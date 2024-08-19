@@ -172,17 +172,17 @@ script = ExtResource("7_pc0v5")
 follow_subject = NodePath("../../PlayerSlug")
 
 [node name="Cam4" type="Camera3D" parent="CameraSwitcher" node_paths=PackedStringArray("follow_subject")]
-transform = Transform3D(1, -2.61323e-08, 0.000170726, 2.6135e-08, 1, -1.54497e-08, -0.000170726, 1.54541e-08, 1, -36.5501, 7.62098, -20.6706)
+transform = Transform3D(1, -2.61323e-08, 0.000170726, 2.6135e-08, 1, -1.54497e-08, -0.000170726, 1.54541e-08, 1, -23.4273, 2.33937, -23.921)
 script = ExtResource("7_pc0v5")
 follow_subject = NodePath("../../PlayerSlug")
 
 [node name="Cam5" type="Camera3D" parent="CameraSwitcher" node_paths=PackedStringArray("follow_subject")]
-transform = Transform3D(1, -2.61323e-08, 0.000170726, 2.6135e-08, 1, -1.54497e-08, -0.000170726, 1.54541e-08, 1, -48.9667, -30.9043, -20.6706)
+transform = Transform3D(1, -2.61323e-08, 0.000170726, 2.6135e-08, 1, -1.54497e-08, -0.000170726, 1.54541e-08, 1, -32.7465, -39.6293, -24.6719)
 script = ExtResource("7_pc0v5")
 follow_subject = NodePath("../../PlayerSlug")
 
 [node name="Cam6" type="Camera3D" parent="CameraSwitcher" node_paths=PackedStringArray("follow_subject")]
-transform = Transform3D(1, -2.61323e-08, 0.000170726, 2.6135e-08, 1, -1.54497e-08, -0.000170726, 1.54541e-08, 1, -45.4064, -74.4532, -20.6706)
+transform = Transform3D(1, -2.61323e-08, 0.000170726, 2.6135e-08, 1, -1.54497e-08, -0.000170726, 1.54541e-08, 1, -23.6486, -83.2761, -14.7)
 script = ExtResource("7_pc0v5")
 follow_subject = NodePath("../../PlayerSlug")
 
