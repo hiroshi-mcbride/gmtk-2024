@@ -1,10 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://c15qxecajtrsy"]
+[gd_scene load_steps=3 format=3 uid="uid://blfqjtws1t4bu"]
 
+[ext_resource type="Theme" uid="uid://d3i20r1tbl66f" path="res://assets/ui/menu.theme" id="1_fax3b"]
 [ext_resource type="Script" path="res://src/ui/button_quit.gd" id="1_k6qq0"]
 
 [node name="BtnQuitGame" type="Button"]
 custom_minimum_size = Vector2(120, 45)
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme = ExtResource("1_fax3b")
 text = "Quit"
 script = ExtResource("1_k6qq0")

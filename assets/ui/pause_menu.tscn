@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b31re741exqx6"]
+[gd_scene load_steps=5 format=3 uid="uid://b31re741exqx6"]
 
 [ext_resource type="Script" path="res://src/ui/pause_menu.gd" id="1_j7x5x"]
-[ext_resource type="PackedScene" path="res://assets/ui/btn_signal.tscn" id="2_xhpm1"]
-[ext_resource type="PackedScene" path="res://assets/ui/btn_quit_game.tscn" id="3_42tlf"]
+[ext_resource type="Theme" uid="uid://d3i20r1tbl66f" path="res://assets/ui/menu.theme" id="1_lpkct"]
+[ext_resource type="PackedScene" uid="uid://brxxxb27464ll" path="res://assets/ui/btn_signal.tscn" id="2_xhpm1"]
+[ext_resource type="PackedScene" uid="uid://blfqjtws1t4bu" path="res://assets/ui/btn_quit_game.tscn" id="3_42tlf"]
 
 [node name="PauseMenuHandler" type="Control"]
 process_mode = 3
@@ -13,6 +14,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+theme = ExtResource("1_lpkct")
 script = ExtResource("1_j7x5x")
 
 [node name="Overlay" type="ColorRect" parent="."]
@@ -33,7 +35,7 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_top = 135.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 72
 text = "Paused"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Overlay"]

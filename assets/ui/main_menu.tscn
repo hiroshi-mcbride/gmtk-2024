@@ -1,26 +1,32 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvx6awjab0tpw"]
+[gd_scene load_steps=5 format=3 uid="uid://dvx6awjab0tpw"]
 
+[ext_resource type="Theme" uid="uid://d3i20r1tbl66f" path="res://assets/ui/menu.theme" id="1_e4thq"]
 [ext_resource type="Script" path="res://src/ui/main_menu.gd" id="1_iwle6"]
-[ext_resource type="PackedScene" uid="uid://dwkbepo5glpuj" path="res://assets/ui/btn_signal.tscn" id="2_xrjr0"]
-[ext_resource type="PackedScene" uid="uid://c15qxecajtrsy" path="res://assets/ui/btn_quit_game.tscn" id="3_cpcmm"]
+[ext_resource type="PackedScene" uid="uid://brxxxb27464ll" path="res://assets/ui/btn_signal.tscn" id="2_xrjr0"]
+[ext_resource type="PackedScene" uid="uid://blfqjtws1t4bu" path="res://assets/ui/btn_quit_game.tscn" id="3_cpcmm"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -270.0
+offset_right = 480.0
+offset_bottom = 270.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_e4thq")
 script = ExtResource("1_iwle6")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
+anchors_preset = -1
+anchor_top = 0.75
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -4.0
-offset_bottom = 4.0
+anchor_bottom = 0.75
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
@@ -41,8 +47,12 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 0.5
-offset_top = 65.0
+offset_left = -208.0
+offset_top = 83.0
+offset_right = 208.0
+offset_bottom = 179.0
 grow_horizontal = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 56
+theme = ExtResource("1_e4thq")
+theme_override_font_sizes/font_size = 128
 text = "Void Bunny"
