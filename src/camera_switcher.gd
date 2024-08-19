@@ -13,8 +13,8 @@ func _ready():
 func _process(delta):
 	pass
 	
-func _switch_camera(name:String):
+func _switch_camera(newCam : Camera3D):
 	for cam in cameras:
 		cam.current = false
-	find_child(name).current = true
+	newCam.current = true
 	pass
