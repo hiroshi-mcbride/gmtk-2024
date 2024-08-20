@@ -1,9 +1,72 @@
-[gd_scene load_steps=5 format=3 uid="uid://dvx6awjab0tpw"]
+[gd_scene load_steps=16 format=3 uid="uid://dvx6awjab0tpw"]
 
-[ext_resource type="Theme" uid="uid://d3i20r1tbl66f" path="res://assets/ui/menu.theme" id="1_e4thq"]
+[ext_resource type="Theme" path="res://assets/ui/menu.theme" id="1_e4thq"]
 [ext_resource type="Script" path="res://src/ui/main_menu.gd" id="1_iwle6"]
 [ext_resource type="PackedScene" uid="uid://brxxxb27464ll" path="res://assets/ui/btn_signal.tscn" id="2_xrjr0"]
 [ext_resource type="PackedScene" uid="uid://blfqjtws1t4bu" path="res://assets/ui/btn_quit_game.tscn" id="3_cpcmm"]
+[ext_resource type="AudioStream" uid="uid://x2kqwvccmba1" path="res://assets/audio/WATRSurf_Ocean Medium to Large Rocks 02 Loop_Cascadia Shore Waves.mp3" id="5_hlmtg"]
+[ext_resource type="Texture2D" uid="uid://b4ocu6hrb5jjh" path="res://assets/textures/rustig_koppie_puresky_4k.exr" id="6_nqvju"]
+[ext_resource type="PackedScene" uid="uid://lakqv0fs0gda" path="res://assets/models/world1.glb" id="7_lk4c7"]
+[ext_resource type="Shader" uid="uid://bqy3eyg6oh8d6" path="res://assets/shaders/water_surface.tres" id="8_qn2r1"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_12d1o"]
+panorama = ExtResource("6_nqvju")
+
+[sub_resource type="Sky" id="Sky_f64s2"]
+sky_material = SubResource("PanoramaSkyMaterial_12d1o")
+
+[sub_resource type="Environment" id="Environment_1x7e3"]
+background_mode = 2
+sky = SubResource("Sky_f64s2")
+sky_rotation = Vector3(0, -1.0472, 0)
+ssr_fade_in = 0.160766
+ssr_depth_tolerance = 0.01
+ssao_enabled = true
+ssao_radius = 3.57
+ssao_intensity = 1.65
+ssao_detail = 0.92
+glow_enabled = true
+glow_intensity = 0.46
+glow_strength = 0.97
+glow_bloom = 0.05
+glow_blend_mode = 1
+glow_hdr_threshold = 0.3
+glow_hdr_scale = 0.15
+glow_hdr_luminance_cap = 14.0
+fog_mode = 1
+fog_light_color = Color(0.106844, 0.248521, 0.346276, 1)
+fog_density = 0.3579
+fog_sky_affect = 0.582
+fog_height_density = 5.0526
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0566
+volumetric_fog_albedo = Color(0.0689402, 0.265391, 0.409978, 1)
+volumetric_fog_emission = Color(0.106572, 0.251532, 0.380163, 1)
+volumetric_fog_emission_energy = 0.25
+volumetric_fog_anisotropy = 0.1
+volumetric_fog_length = 33.16
+volumetric_fog_ambient_inject = 0.3
+volumetric_fog_sky_affect = 0.747
+volumetric_fog_temporal_reprojection_amount = 0.907
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_uxqtw"]
+flip_faces = true
+size = Vector2(20, 20)
+subdivide_width = 90
+subdivide_depth = 90
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h22g2"]
+render_priority = 0
+shader = ExtResource("8_qn2r1")
+
+[sub_resource type="TorusMesh" id="TorusMesh_uolv2"]
+inner_radius = 7.703
+outer_radius = 8.925
+rings = 19
+ring_segments = 3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1wc6g"]
+albedo_color = Color(0, 0, 0, 1)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -56,3 +119,45 @@ size_flags_horizontal = 4
 theme = ExtResource("1_e4thq")
 theme_override_font_sizes/font_size = 128
 text = "Void Bunny"
+
+[node name="MenuAmbience" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_hlmtg")
+volume_db = -16.0
+autoplay = true
+
+[node name="World1" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="World1"]
+environment = SubResource("Environment_1x7e3")
+
+[node name="world1" parent="World1" instance=ExtResource("7_lk4c7")]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0.000768244, 3.57628e-07, 0.00548983)
+
+[node name="water surface" type="MeshInstance3D" parent="World1/world1"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -0.000768244, 0.687575, -0.00548983)
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_uxqtw")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_h22g2")
+
+[node name="far water cylinder" type="MeshInstance3D" parent="World1/world1"]
+transform = Transform3D(1, 0, 0, 0, 6.942, 0, 0, 0, 1, -0.000768244, -3.16554, -0.00548983)
+mesh = SubResource("TorusMesh_uolv2")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1wc6g")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="World1"]
+transform = Transform3D(-4.34806e-08, 0.650893, -0.759169, -4.48637e-09, 0.759169, 0.650893, 1, 3.17071e-08, -3.0089e-08, -143.139, 123.624, 24.8783)
+light_energy = 1.509
+light_indirect_energy = 2.165
+light_volumetric_fog_energy = 1.64
+light_specular = 3.346
+light_bake_mode = 1
+shadow_blur = 1.285
+spot_range = 1098.96
+spot_angle = 27.98
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.791779, 0.212433, 0.572677, 0, 0.937572, -0.34779, -0.610808, 0.275373, 0.74235, 27.359, 31.4516, 40.2637)
+fov = 70.1
