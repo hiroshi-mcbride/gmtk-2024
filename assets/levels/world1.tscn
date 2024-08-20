@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c5cd1sw74yigk"]
+[gd_scene load_steps=28 format=3 uid="uid://c5cd1sw74yigk"]
 
 [ext_resource type="PackedScene" uid="uid://lakqv0fs0gda" path="res://assets/models/world1.glb" id="1_mqybv"]
 [ext_resource type="Script" path="res://src/world.gd" id="1_q0m55"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://src/camera/camera_switcher.gd" id="7_je5a7"]
 [ext_resource type="Script" path="res://src/camera/follow_camera.gd" id="7_pc0v5"]
 [ext_resource type="Script" path="res://src/camera/camera_switcher_trigger.gd" id="11_edr8f"]
+[ext_resource type="Script" path="res://src/loadzone.gd" id="13_p2u10"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ysank"]
 panorama = ExtResource("1_seu1q")
@@ -90,6 +91,9 @@ size = Vector3(10.9389, 20.0917, 63.3567)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vj1i3"]
 size = Vector3(72.4119, 20.0917, 63.3567)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ruigg"]
+size = Vector3(500.752, 26.9805, 306.278)
 
 [node name="World1" type="Node3D"]
 script = ExtResource("1_q0m55")
@@ -252,11 +256,22 @@ camera = NodePath("../CameraSwitcher/Cam6")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.36147, 0.013958, 1.64037)
 shape = SubResource("BoxShape3D_vj1i3")
 
+[node name="Loadzone" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.407, -111.492, -2.67791)
+monitorable = false
+script = ExtResource("13_p2u10")
+level = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Loadzone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.2478, -12.9763, -33.7478)
+shape = SubResource("BoxShape3D_ruigg")
+
 [connection signal="body_entered" from="CamTrigger1" to="CamTrigger1" method="_on_body_entered"]
 [connection signal="body_entered" from="CamTrigger2" to="CamTrigger2" method="_on_body_entered"]
 [connection signal="body_entered" from="CamTrigger3" to="CamTrigger3" method="_on_body_entered"]
 [connection signal="body_entered" from="CamTrigger4" to="CamTrigger4" method="_on_body_entered"]
 [connection signal="body_entered" from="CamTrigger5" to="CamTrigger5" method="_on_body_entered"]
 [connection signal="body_entered" from="CamTrigger6" to="CamTrigger6" method="_on_body_entered"]
+[connection signal="body_entered" from="Loadzone" to="Loadzone" method="_on_body_entered"]
 
 [editable path="PlayerSlug"]
