@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://eva8mktbx00q" path="res://assets/models/world2.glb" id="1_j2gng"]
 [ext_resource type="Texture2D" uid="uid://bge7fiojxace" path="res://assets/textures/moonless_golf_4k.exr" id="1_jf637"]
+[ext_resource type="AudioStream" uid="uid://bteh1vbhyvkva" path="res://assets/audio/gmtk_ambience2.mp3" id="2_1760b"]
 [ext_resource type="PackedScene" uid="uid://con3m1bt17csg" path="res://assets/player/player_slug.tscn" id="2_h5mwm"]
-[ext_resource type="AudioStream" uid="uid://cdpgfbdykyv4c" path="res://assets/audio/gmtk_ambience.mp3" id="2_jny4b"]
 [ext_resource type="Script" path="res://src/camera/camera_switcher.gd" id="4_iem5g"]
 [ext_resource type="Script" path="res://src/camera/follow_camera.gd" id="5_c8ccg"]
 
@@ -31,8 +31,8 @@ fog_sky_affect = 0.758
 environment = SubResource("Environment_7bvhi")
 
 [node name="Ambience" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_jny4b")
-volume_db = -16.0
+stream = ExtResource("2_1760b")
+volume_db = -14.0
 autoplay = true
 
 [node name="world2" parent="." instance=ExtResource("1_j2gng")]
