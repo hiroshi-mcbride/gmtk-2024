@@ -103,7 +103,6 @@ environment = SubResource("Environment_n4qif")
 stream = ExtResource("3_h678p")
 volume_db = -16.0
 autoplay = true
-bus = &"ambience"
 
 [node name="world1" parent="." instance=ExtResource("1_mqybv")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0.000768244, 3.57628e-07, 0.00548983)
