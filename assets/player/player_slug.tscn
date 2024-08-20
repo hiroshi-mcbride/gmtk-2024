@@ -76,11 +76,11 @@ mesh = SubResource("CapsuleMesh_rqwv7")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Head"]
 stream = ExtResource("4_cvtht")
-volume_db = -10.0
+volume_db = -12.5
 unit_size = 0.12
-max_db = -10.0
+max_db = -12.5
 autoplay = true
-max_distance = 32.0
+max_distance = 24.0
 bus = &"sfx"
 parameters/looping = true
 

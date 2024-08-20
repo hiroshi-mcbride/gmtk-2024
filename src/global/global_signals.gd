@@ -7,7 +7,8 @@ enum Type {
 	QUIT_TO_MAIN_MENU,
 	MOUSE_OVER_ENTERED,
 	MOUSE_OVER_EXITED,
-	WORLD_CHANGED
+	WORLD_CHANGED,
+	SPLASH_SKIP,
 }
 
 signal game_started()
@@ -17,6 +18,7 @@ signal game_quit()
 signal mouse_over_entered()
 signal mouse_over_exited()
 signal world_changed(world_name:String)
+signal splash_skip()
 
 var signals = { 
 	Type.START_GAME : game_started,
@@ -26,4 +28,5 @@ var signals = {
 	Type.MOUSE_OVER_ENTERED : mouse_over_entered,
 	Type.MOUSE_OVER_EXITED : mouse_over_exited,
 	Type.WORLD_CHANGED : world_changed,
+	Type.SPLASH_SKIP : splash_skip,
 }

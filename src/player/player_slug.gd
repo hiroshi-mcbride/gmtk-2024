@@ -32,7 +32,7 @@ func _physics_process(delta: float) -> void:
 	velocity.y += get_gravity().y * delta
 	velocity.y = clampf(velocity.y, -8, oozle_speed)
 	velocity = Vector3(new_speed.x, velocity.y, new_speed.z)
-	var volume = remap(velocity.length(), 0, 1, -80, -2)
+	var volume = remap(velocity.length(), 0, 1, -80, audio_stream_player_3d.max_db)
 	move_and_slide()
 	if is_on_floor():
 		audio_stream_player_3d.volume_db = volume
