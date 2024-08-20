@@ -1,12 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://depxsifr08f28"]
+[gd_scene load_steps=20 format=3 uid="uid://depxsifr08f28"]
 
 [ext_resource type="PackedScene" uid="uid://eva8mktbx00q" path="res://assets/models/world2.glb" id="1_j2gng"]
 [ext_resource type="Texture2D" uid="uid://bge7fiojxace" path="res://assets/textures/moonless_golf_4k.exr" id="1_jf637"]
-[ext_resource type="AudioStream" uid="uid://bteh1vbhyvkva" path="res://assets/audio/gmtk_ambience2.mp3" id="2_1760b"]
+[ext_resource type="AudioStream" uid="uid://bapmehj4dnkdd" path="res://assets/audio/gmtk_ambience2.mp3" id="2_1760b"]
 [ext_resource type="PackedScene" uid="uid://con3m1bt17csg" path="res://assets/player/player_slug.tscn" id="2_h5mwm"]
 [ext_resource type="Script" path="res://src/camera/camera_switcher.gd" id="4_iem5g"]
 [ext_resource type="Script" path="res://src/camera/follow_camera.gd" id="5_c8ccg"]
-[ext_resource type="ArrayMesh" uid="uid://dp1hfgtsuayxf" path="res://assets/models/pillar.obj" id="7_w34ak"]
+[ext_resource type="PackedScene" uid="uid://dlmdlr3ubnl2l" path="res://assets/models/pillar.glb" id="5_cstkv"]
 [ext_resource type="Script" path="res://src/camera/camera_switcher_trigger.gd" id="8_0ko22"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_484q1"]
@@ -38,6 +38,24 @@ radius = 44.948
 [sub_resource type="BoxShape3D" id="BoxShape3D_iskql"]
 size = Vector3(39.1488, 19.0672, 104.992)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_gdwqt"]
+size = Vector3(39.1488, 19.0672, 79.3476)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b17dv"]
+size = Vector3(21.0747, 19.0672, 44.9958)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iuqon"]
+size = Vector3(31.3306, 17.4047, 75.9113)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e4aud"]
+size = Vector3(51.5956, 17.4047, 111.594)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n1un2"]
+size = Vector3(51.5956, 17.4047, 91.5318)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tgmkd"]
+size = Vector3(55.5567, 17.4047, 91.5318)
+
 [node name="World2" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -64,20 +82,30 @@ omni_attenuation = 1.45
 [node name="world2" parent="." instance=ExtResource("1_j2gng")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 
-[node name="Pillar" type="MeshInstance3D" parent="world2"]
-transform = Transform3D(0.0975998, 0.0443146, -0.223085, -0.022169, 0.243454, 0.038662, 0.22636, 0.00473598, 0.0999737, -2.92785, 0.368128, -2.93536)
-mesh = ExtResource("7_w34ak")
-skeleton = NodePath("../..")
+[node name="pillar" parent="world2" instance=ExtResource("5_cstkv")]
+transform = Transform3D(-0.0902107, -0.0278909, -0.22878, 0.0347409, 0.241228, -0.0431072, 0.227841, -0.0478252, -0.0840096, 0.156812, 1.46266, -0.799529)
 
-[node name="Pillar2" type="MeshInstance3D" parent="world2"]
-transform = Transform3D(0.151371, -0.0553639, -0.187824, 0.0347409, 0.241228, -0.0431072, 0.192707, -5.4265e-10, 0.155307, -0.72656, 1.46266, -6.59745)
-mesh = ExtResource("7_w34ak")
-skeleton = NodePath("../..")
+[node name="pillar2" parent="world2" instance=ExtResource("5_cstkv")]
+transform = Transform3D(0.151371, -0.0553639, -0.187824, 0.034741, 0.241228, -0.0431072, 0.192708, 3.68803e-08, 0.155307, -0.72656, 1.46266, -6.59745)
 
-[node name="Pillar3" type="MeshInstance3D" parent="world2"]
-transform = Transform3D(-0.0902107, -0.0278909, -0.22878, 0.0347409, 0.241228, -0.0431072, 0.227841, -0.0478253, -0.0840098, 0.156812, 1.46266, -0.799529)
-mesh = ExtResource("7_w34ak")
-skeleton = NodePath("../..")
+[node name="pillar3" parent="world2" instance=ExtResource("5_cstkv")]
+transform = Transform3D(0.0976001, 0.0443146, -0.223084, -0.0221691, 0.243454, 0.038662, 0.226361, 0.00473598, 0.0999739, -2.92785, 0.368128, -2.93536)
+
+[node name="pillar4" parent="world2" instance=ExtResource("5_cstkv")]
+transform = Transform3D(0.416305, -0.30501, -0.209846, 0.0204567, 0.333481, -0.444422, 0.370993, 0.323875, 0.259981, -7.97794, 0.377272, 2.57182)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="world2/pillar4"]
+transform = Transform3D(0.133755, 0.00656937, 0.119093, -0.0986177, 0.10788, 0.104808, -0.0678486, -0.143759, 0.0841316, 0.0656996, 7.56872, -1.98853)
+light_energy = 16.0
+light_indirect_energy = 1.375
+light_volumetric_fog_energy = 17.218
+light_specular = 2.278
+light_bake_mode = 1
+omni_range = 94.635
+omni_attenuation = 0.938
+
+[node name="pillar5" parent="world2" instance=ExtResource("5_cstkv")]
+transform = Transform3D(0.164496, -0.0398719, -0.180576, 0.0312174, 0.244197, -0.0254823, 0.182272, -0.00583987, 0.167329, -6.23417, 0.368128, -2.93536)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 44.9573, 125.339, -67.7454)
@@ -99,15 +127,6 @@ spot_attenuation = -0.25
 spot_angle = 22.37
 spot_angle_attenuation = 4.75683
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.2049, 40.0441, -36.6399)
-light_energy = 16.0
-light_volumetric_fog_energy = 15.838
-light_specular = 2.278
-light_bake_mode = 1
-omni_range = 94.635
-omni_attenuation = 1.564
-
 [node name="CameraSwitcher" type="Node3D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("4_iem5g")
@@ -119,12 +138,37 @@ script = ExtResource("5_c8ccg")
 follow_subject = NodePath("../../PlayerSlug")
 
 [node name="Cam2" type="Camera3D" parent="CameraSwitcher" node_paths=PackedStringArray("follow_subject")]
-transform = Transform3D(-1, 0.000181033, -8.53352e-05, 0.000181007, 1, 0.000307085, 8.53908e-05, 0.00030707, -1, 21.8722, 43.9837, -24.0237)
+transform = Transform3D(-1, 0.000181033, -8.53352e-05, 0.000181007, 1, 0.000307085, 8.53908e-05, 0.00030707, -1, 11.925, 43.9837, -31.8909)
 script = ExtResource("5_c8ccg")
 follow_subject = NodePath("../../PlayerSlug")
 
 [node name="Cam3" type="Camera3D" parent="CameraSwitcher" node_paths=PackedStringArray("follow_subject")]
-transform = Transform3D(-1, 0.000181033, -8.53352e-05, 0.000181007, 1, 0.000307085, 8.53908e-05, 0.00030707, -1, 9.82203, 20.7546, -48.7037)
+transform = Transform3D(-1, 0.000181033, -8.53352e-05, 0.000181007, 1, 0.000307085, 8.53908e-05, 0.00030707, -1, 11.7299, 23.8003, -48.7037)
+script = ExtResource("5_c8ccg")
+follow_subject = NodePath("../../PlayerSlug")
+
+[node name="Cam4" type="Camera3D" parent="CameraSwitcher" node_paths=PackedStringArray("follow_subject")]
+transform = Transform3D(-1, 0.000181033, -8.53352e-05, 0.000181007, 1, 0.000307085, 8.53908e-05, 0.00030707, -1, -13.0967, 43.9837, -94.1892)
+script = ExtResource("5_c8ccg")
+follow_subject = NodePath("../../PlayerSlug")
+
+[node name="Cam5" type="Camera3D" parent="CameraSwitcher" node_paths=PackedStringArray("follow_subject")]
+transform = Transform3D(-1, 0.000181033, -8.53352e-05, 0.000181007, 1, 0.000307085, 8.53908e-05, 0.00030707, -1, -19.9806, 16.9702, -90.6568)
+script = ExtResource("5_c8ccg")
+follow_subject = NodePath("../../PlayerSlug")
+
+[node name="Cam6" type="Camera3D" parent="CameraSwitcher" node_paths=PackedStringArray("follow_subject")]
+transform = Transform3D(-1, 0.000181033, -8.53352e-05, 0.000181007, 1, 0.000307085, 8.53908e-05, 0.00030707, -1, -32.7905, 25.3156, -48.8528)
+script = ExtResource("5_c8ccg")
+follow_subject = NodePath("../../PlayerSlug")
+
+[node name="Cam7" type="Camera3D" parent="CameraSwitcher" node_paths=PackedStringArray("follow_subject")]
+transform = Transform3D(-1, 0.000181033, -8.53352e-05, 0.000181007, 1, 0.000307085, 8.53908e-05, 0.00030707, -1, -13.0603, 25.3156, -6.31982)
+script = ExtResource("5_c8ccg")
+follow_subject = NodePath("../../PlayerSlug")
+
+[node name="Cam8" type="Camera3D" parent="CameraSwitcher" node_paths=PackedStringArray("follow_subject")]
+transform = Transform3D(-1, 0.000181033, -8.53352e-05, 0.000181007, 1, 0.000307085, 8.53908e-05, 0.00030707, -1, -72.2973, 25.3156, 18.0613)
 script = ExtResource("5_c8ccg")
 follow_subject = NodePath("../../PlayerSlug")
 
@@ -155,11 +199,66 @@ script = ExtResource("8_0ko22")
 camera = NodePath("../CameraSwitcher/Cam3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CamTrigger3"]
-transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -13.7453, -1.12214, 15.0169)
-shape = SubResource("BoxShape3D_iskql")
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -13.7453, -1.12214, 27.8391)
+shape = SubResource("BoxShape3D_gdwqt")
+
+[node name="CamTrigger4" type="Area3D" parent="." node_paths=PackedStringArray("camera")]
+transform = Transform3D(0.897158, 0, 0.44171, 0, 1, 0, -0.44171, 0, 0.897158, 17.7595, 36.0719, -123.276)
+monitorable = false
+script = ExtResource("8_0ko22")
+camera = NodePath("../CameraSwitcher/Cam4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CamTrigger4"]
+transform = Transform3D(0.871633, 0, -0.490158, 0, 1, 0, 0.490158, 0, 0.871633, -22.7705, -1.12214, 11.4706)
+shape = SubResource("BoxShape3D_b17dv")
+
+[node name="CamTrigger5" type="Area3D" parent="." node_paths=PackedStringArray("camera")]
+transform = Transform3D(0.897158, 0, 0.44171, 0, 1, 0, -0.44171, 0, 0.897158, 7.24042, 18.6771, -118.113)
+monitorable = false
+script = ExtResource("8_0ko22")
+camera = NodePath("../CameraSwitcher/Cam5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CamTrigger5"]
+transform = Transform3D(0.999864, 0, -0.0164923, 0, 1, 0, 0.0164923, 0, 0.999864, -28.3534, -1.95337, 1.06489)
+shape = SubResource("BoxShape3D_iuqon")
+
+[node name="CamTrigger6" type="Area3D" parent="." node_paths=PackedStringArray("camera")]
+transform = Transform3D(0.897158, 0, 0.44171, 0, 1, 0, -0.44171, 0, 0.897158, -1.70606, 18.6771, -59.0297)
+monitorable = false
+script = ExtResource("8_0ko22")
+camera = NodePath("../CameraSwitcher/Cam6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CamTrigger6"]
+transform = Transform3D(0.999864, 0, -0.0164923, 0, 1, 0, 0.0164923, 0, 0.999864, -40.8456, -1.95337, -39.3933)
+shape = SubResource("BoxShape3D_e4aud")
+
+[node name="CamTrigger7" type="Area3D" parent="." node_paths=PackedStringArray("camera")]
+transform = Transform3D(0.897158, 0, 0.44171, 0, 1, 0, -0.44171, 0, 0.897158, -1.70606, 18.6771, -33.3684)
+monitorable = false
+script = ExtResource("8_0ko22")
+camera = NodePath("../CameraSwitcher/Cam7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CamTrigger7"]
+transform = Transform3D(0.999864, 0, -0.0164923, 0, 1, 0, 0.0164923, 0, 0.999864, -30.9539, -1.95337, 39.9226)
+shape = SubResource("BoxShape3D_n1un2")
+
+[node name="CamTrigger8" type="Area3D" parent="." node_paths=PackedStringArray("camera")]
+transform = Transform3D(0.897158, 0, 0.44171, 0, 1, 0, -0.44171, 0, 0.897158, -1.70606, 18.6771, -33.3684)
+monitorable = false
+script = ExtResource("8_0ko22")
+camera = NodePath("../CameraSwitcher/Cam8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CamTrigger8"]
+transform = Transform3D(0.999864, 0, -0.0164923, 0, 1, 0, 0.0164923, 0, 0.999864, -85.9436, -1.95337, 11.9064)
+shape = SubResource("BoxShape3D_tgmkd")
 
 [connection signal="body_entered" from="CamTrigger1" to="CamTrigger1" method="_on_body_entered"]
 [connection signal="body_entered" from="CamTrigger2" to="CamTrigger2" method="_on_body_entered"]
 [connection signal="body_entered" from="CamTrigger3" to="CamTrigger3" method="_on_body_entered"]
+[connection signal="body_entered" from="CamTrigger4" to="CamTrigger4" method="_on_body_entered"]
+[connection signal="body_entered" from="CamTrigger5" to="CamTrigger5" method="_on_body_entered"]
+[connection signal="body_entered" from="CamTrigger6" to="CamTrigger6" method="_on_body_entered"]
+[connection signal="body_entered" from="CamTrigger7" to="CamTrigger7" method="_on_body_entered"]
+[connection signal="body_entered" from="CamTrigger8" to="CamTrigger8" method="_on_body_entered"]
 
 [editable path="PlayerSlug"]
