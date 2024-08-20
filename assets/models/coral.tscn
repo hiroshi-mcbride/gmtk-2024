@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckp5kjtmsdkr4"]
+
+[ext_resource type="ArrayMesh" uid="uid://c45aas0rxce1q" path="res://assets/models/coral1.obj" id="1_jkmuq"]
+[ext_resource type="Texture2D" uid="uid://bsd2avflyujmb" path="res://assets/textures/coral1.png" id="2_00fia"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m1cu7"]
+albedo_texture = ExtResource("2_00fia")
+uv1_scale = Vector3(0.305, 0.305, 0.305)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 0.101532
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k02dc"]
+size = Vector3(2.465, 3.83, 1.93)
+
+[node name="Coral1" type="MeshInstance3D"]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0.00955182, 0.0224705, 0)
+mesh = ExtResource("1_jkmuq")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m1cu7")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.193722, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.87, 0)
+shape = SubResource("BoxShape3D_k02dc")
