@@ -262,7 +262,6 @@ monitorable = false
 script = ExtResource("9_hsm47")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CrashTrigger"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("SphereShape3D_84ls6")
 
 [connection signal="body_entered" from="CamTrigger1" to="CamTrigger1" method="_on_body_entered"]
