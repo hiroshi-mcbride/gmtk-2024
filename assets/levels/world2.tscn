@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://depxsifr08f28"]
+[gd_scene load_steps=10 format=3 uid="uid://depxsifr08f28"]
 
 [ext_resource type="PackedScene" uid="uid://eva8mktbx00q" path="res://assets/models/world2.glb" id="1_j2gng"]
 [ext_resource type="Texture2D" uid="uid://bge7fiojxace" path="res://assets/textures/moonless_golf_4k.exr" id="1_jf637"]
@@ -16,34 +16,19 @@ sky_material = SubResource("PanoramaSkyMaterial_484q1")
 
 [sub_resource type="Environment" id="Environment_7bvhi"]
 background_mode = 1
-background_color = Color(0.190636, 0.284166, 0.444717, 1)
+background_color = Color(0.212878, 0.313677, 0.486638, 1)
 background_energy_multiplier = 0.2
 sky = SubResource("Sky_tges3")
 sky_rotation = Vector3(3.3074, -6.77188, 0)
 fog_enabled = true
 fog_light_color = Color(0.0433506, 0.0589487, 0.102505, 1)
-fog_density = 0.057
+fog_density = 0.0911
 fog_sky_affect = 0.758
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k01to"]
-transparency = 1
-blend_mode = 1
-cull_mode = 1
-albedo_color = Color(0.349298, 0.38613, 0.394014, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_60ser"]
-top_radius = 15.566
-bottom_radius = 3.96
-height = 100.0
-
-[sub_resource type="SphereMesh" id="SphereMesh_o482v"]
-radius = 3.33
-height = 6.825
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hk3n8"]
-emission_enabled = true
-emission = Color(1, 1, 1, 1)
-emission_energy_multiplier = 229.35
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0396
+volumetric_fog_albedo = Color(0.351739, 0.433811, 0.515695, 1)
+volumetric_fog_anisotropy = 0.55
+volumetric_fog_length = 104.15
 
 [node name="World2" type="Node3D"]
 
@@ -62,6 +47,14 @@ transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.4972, 79.5122, -69.1815)
 camera_3d = NodePath("../CameraSwitcher/Cam1")
 
+[node name="OmniLight3D" type="OmniLight3D" parent="PlayerSlug/Head" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.238464, -0.041481)
+light_energy = 3.66
+light_volumetric_fog_energy = 5.24
+light_specular = 0.0
+omni_range = 1.662
+omni_attenuation = 0.48
+
 [node name="CameraSwitcher" type="Node3D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("4_iem5g")
@@ -78,19 +71,27 @@ light_energy = 1.24
 light_bake_mode = 1
 shadow_enabled = true
 spot_range = 171.113
+spot_attenuation = -0.35
+spot_angle = 8.96
+spot_angle_attenuation = 2.46229
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 44.9573, 125.339, -67.7454)
+light_energy = 1.24
+light_bake_mode = 1
+shadow_enabled = true
+spot_range = 171.113
 spot_attenuation = -0.25
-spot_angle = 8.56
-spot_angle_attenuation = 1.56917
+spot_angle = 22.37
+spot_angle_attenuation = 4.75683
 
-[node name="shaft" type="MeshInstance3D" parent="SpotLight3D"]
-transform = Transform3D(1, 0, 0, 0, -6.96495e-08, 1, 0, -1.5934, -4.37114e-08, -0.537376, -0.55024, -34.588)
-material_override = SubResource("StandardMaterial3D_k01to")
-cast_shadow = 0
-mesh = SubResource("CylinderMesh_60ser")
-
-[node name="point" type="MeshInstance3D" parent="SpotLight3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.576836, 0, 57.5382)
-mesh = SubResource("SphereMesh_o482v")
-surface_material_override/0 = SubResource("StandardMaterial3D_hk3n8")
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.6971, 40.0441, -36.6399)
+light_energy = 16.0
+light_volumetric_fog_energy = 15.838
+light_specular = 2.278
+light_bake_mode = 1
+omni_range = 94.635
+omni_attenuation = 1.564
 
 [editable path="PlayerSlug"]
