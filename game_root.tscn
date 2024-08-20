@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://cidbu3txii66l"]
+[gd_scene load_steps=13 format=3 uid="uid://cidbu3txii66l"]
 
 [ext_resource type="Script" path="res://src/global/scene_manager.gd" id="1_2h0qm"]
 [ext_resource type="Texture2D" uid="uid://b4ocu6hrb5jjh" path="res://assets/textures/rustig_koppie_puresky_4k.exr" id="2_d84h0"]
+[ext_resource type="AudioStream" uid="uid://x2kqwvccmba1" path="res://assets/audio/WATRSurf_Ocean Medium to Large Rocks 02 Loop_Cascadia Shore Waves.mp3" id="2_q4e2r"]
 [ext_resource type="PackedScene" uid="uid://lakqv0fs0gda" path="res://assets/models/world1.glb" id="3_1yelm"]
 [ext_resource type="Shader" uid="uid://bqy3eyg6oh8d6" path="res://assets/shaders/water_surface.tres" id="4_w3wv3"]
 
@@ -70,14 +71,16 @@ script = ExtResource("1_2h0qm")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="MenuAmbience" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_q4e2r")
+volume_db = -16.0
+autoplay = true
+
 [node name="World1" type="Node3D" parent="."]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="World1"]
 environment = SubResource("Environment_del85")
-
-[node name="Ambience" type="AudioStreamPlayer" parent="World1"]
-volume_db = -16.0
-autoplay = true
 
 [node name="world1" parent="World1" instance=ExtResource("3_1yelm")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0.000768244, 3.57628e-07, 0.00548983)

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://x2kqwvccmba1"
+path="res://.godot/imported/WATRSurf_Ocean Medium to Large Rocks 02 Loop_Cascadia Shore Waves.mp3-1e7185d285c8ad86b50e94ba93cfde9a.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/WATRSurf_Ocean Medium to Large Rocks 02 Loop_Cascadia Shore Waves.mp3"
+dest_files=["res://.godot/imported/WATRSurf_Ocean Medium to Large Rocks 02 Loop_Cascadia Shore Waves.mp3-1e7185d285c8ad86b50e94ba93cfde9a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

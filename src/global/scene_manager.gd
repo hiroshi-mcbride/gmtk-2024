@@ -18,6 +18,7 @@ func _on_game_started():
 	load_scene(WORLD_SCENE, self)
 	load_scene(PAUSE_MENU_SCENE, canvas_layer)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	%MenuAmbience.stop()
 	
 	GlobalSignals.game_quit.connect(_on_game_quit)
 
