@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://depxsifr08f28"]
+[gd_scene load_steps=11 format=3 uid="uid://depxsifr08f28"]
 
 [ext_resource type="PackedScene" uid="uid://eva8mktbx00q" path="res://assets/models/world2.glb" id="1_j2gng"]
 [ext_resource type="Texture2D" uid="uid://bge7fiojxace" path="res://assets/textures/moonless_golf_4k.exr" id="1_jf637"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://con3m1bt17csg" path="res://assets/player/player_slug.tscn" id="2_h5mwm"]
 [ext_resource type="Script" path="res://src/camera/camera_switcher.gd" id="4_iem5g"]
 [ext_resource type="Script" path="res://src/camera/follow_camera.gd" id="5_c8ccg"]
+[ext_resource type="ArrayMesh" uid="uid://dp1hfgtsuayxf" path="res://assets/models/pillar.obj" id="7_w34ak"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_484q1"]
 panorama = ExtResource("1_jf637")
@@ -86,12 +87,24 @@ spot_angle = 22.37
 spot_angle_attenuation = 4.75683
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.6971, 40.0441, -36.6399)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.2049, 40.0441, -36.6399)
 light_energy = 16.0
 light_volumetric_fog_energy = 15.838
 light_specular = 2.278
 light_bake_mode = 1
 omni_range = 94.635
 omni_attenuation = 1.564
+
+[node name="Pillar" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.975998, 0.443146, -2.23085, -0.22169, 2.43454, 0.38662, 2.2636, 0.0473598, 0.999737, -29.2785, 3.68128, -29.3536)
+mesh = ExtResource("7_w34ak")
+
+[node name="Pillar2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.51371, -0.553639, -1.87824, 0.347409, 2.41228, -0.431072, 1.92707, -5.4265e-09, 1.55307, -7.2656, 14.6266, -65.9745)
+mesh = ExtResource("7_w34ak")
+
+[node name="Pillar3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.902107, -0.278909, -2.2878, 0.347409, 2.41228, -0.431072, 2.27841, -0.478253, -0.840098, 1.56812, 14.6266, -7.99529)
+mesh = ExtResource("7_w34ak")
 
 [editable path="PlayerSlug"]
