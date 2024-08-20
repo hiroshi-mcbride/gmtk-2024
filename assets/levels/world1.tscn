@@ -5,11 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://b4ocu6hrb5jjh" path="res://assets/textures/rustig_koppie_puresky_4k.exr" id="1_seu1q"]
 [ext_resource type="Shader" uid="uid://bqy3eyg6oh8d6" path="res://assets/shaders/water_surface.tres" id="3_3g05g"]
 [ext_resource type="AudioStream" uid="uid://dm577o1c45we2" path="res://assets/audio/WATRFlow_Rapid Water Movement Next to Waterfall, Vibrations, Drone, Rumble_BOLT_Immersive Creek_Geofon.wav" id="3_h678p"]
-[ext_resource type="ArrayMesh" uid="uid://c45aas0rxce1q" path="res://assets/models/coral1.obj" id="3_uqh8w"]
 [ext_resource type="PackedScene" uid="uid://con3m1bt17csg" path="res://assets/player/player_slug.tscn" id="4_ixh8q"]
-[ext_resource type="Texture2D" uid="uid://bsd2avflyujmb" path="res://assets/textures/coral1.png" id="4_pwxc0"]
+[ext_resource type="PackedScene" uid="uid://ckp5kjtmsdkr4" path="res://assets/models/coral.tscn" id="6_k3i2d"]
 [ext_resource type="Script" path="res://src/camera/camera_switcher.gd" id="7_je5a7"]
 [ext_resource type="Script" path="res://src/camera/follow_camera.gd" id="7_pc0v5"]
+[ext_resource type="Texture2D" uid="uid://b5db33xeqguw" path="res://assets/textures/coral2.png" id="7_rt1if"]
 [ext_resource type="Script" path="res://src/camera/camera_switcher_trigger.gd" id="11_edr8f"]
 [ext_resource type="Script" path="res://src/loadzone.gd" id="13_p2u10"]
 
@@ -51,11 +51,10 @@ volumetric_fog_ambient_inject = 0.3
 volumetric_fog_sky_affect = 0.747
 volumetric_fog_temporal_reprojection_amount = 0.907
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m1cu7"]
-albedo_texture = ExtResource("4_pwxc0")
-uv1_scale = Vector3(0.305, 0.305, 0.305)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rcpmk"]
+albedo_texture = ExtResource("7_rt1if")
+uv1_scale = Vector3(0.365, 0.365, 0.365)
 uv1_triplanar = true
-uv1_triplanar_sharpness = 0.101532
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_muq6j"]
 flip_faces = true
@@ -111,23 +110,78 @@ transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0.000768244, 3.57628e-07, 
 
 [node name="Details" type="Node3D" parent="world1"]
 
-[node name="Coral1" type="MeshInstance3D" parent="world1/Details"]
-transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0.00955182, 0.0224705, 0)
-mesh = ExtResource("3_uqh8w")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_m1cu7")
+[node name="Coral1" parent="world1/Details" instance=ExtResource("6_k3i2d")]
 
-[node name="Coral2" type="MeshInstance3D" parent="world1/Details"]
-transform = Transform3D(0.00518814, 0, 0.0076482, 0.000856443, 0.0127524, -0.000895835, -0.00609932, 0.00179065, 0.00637985, -0.0292366, 0.0168826, -0.0290093)
-mesh = ExtResource("3_uqh8w")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_m1cu7")
+[node name="Coral2" parent="world1/Details" instance=ExtResource("6_k3i2d")]
+transform = Transform3D(0.000738209, 0, -0.0119463, 0, 0.01201, 0, 0.00993616, 0, 0.000887557, -0.0303997, 0.0224705, -0.0488131)
+surface_material_override/0 = SubResource("StandardMaterial3D_rcpmk")
 
-[node name="Coral3" type="MeshInstance3D" parent="world1/Details"]
-transform = Transform3D(0.0118648, -0.00143663, 0.00172578, 0.0012762, 0.0148543, -0.00134376, -0.00126425, 0.00151215, 0.0148397, -0.426718, -0.118569, 0.528014)
-mesh = ExtResource("3_uqh8w")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_m1cu7")
+[node name="Coral3" parent="world1/Details" instance=ExtResource("6_k3i2d")]
+transform = Transform3D(0.01, 0, 0, 0, 0.00845808, -0.0112147, 0, 0.0126536, 0.00749622, 0.06474, 0.0224705, 0)
+
+[node name="Coral4" parent="world1/Details" instance=ExtResource("6_k3i2d")]
+transform = Transform3D(0.01, 0, 0, 0, 0.00864073, 0.00503367, 0, -0.00503367, 0.00864073, -0.396163, -0.106655, 0.536345)
+
+[node name="Coral5" parent="world1/Details" instance=ExtResource("6_k3i2d")]
+transform = Transform3D(0.00878066, 6.67085e-12, -0.00566137, 0.00115899, 0.0116405, 0.00259848, 0.00456388, -0.00295609, 0.0102323, -0.0117556, 0.0105963, -0.0599862)
+surface_material_override/0 = SubResource("StandardMaterial3D_rcpmk")
+
+[node name="Coral6" parent="world1/Details" instance=ExtResource("6_k3i2d")]
+transform = Transform3D(8.27366e-05, 0.00785731, -0.00725931, 0.000448679, 0.00807449, 0.00705864, 0.0158386, -0.000269781, -0.000162038, 0.06474, 0.0224705, -0.0411909)
+
+[node name="Coral7" parent="world1/Details" instance=ExtResource("6_k3i2d")]
+transform = Transform3D(-0.00961141, 0, 0.00276057, 0, 0.01, 0, -0.00276057, 0, -0.00961141, 0.150775, 0.0241894, -0.187493)
+
+[node name="Coral8" parent="world1/Details" instance=ExtResource("6_k3i2d")]
+transform = Transform3D(0.00203342, 0, 0.0117271, 0, 0.01201, 0, -0.00975384, 0, 0.0024448, 0.175698, 0.0241894, -0.129548)
+surface_material_override/0 = SubResource("StandardMaterial3D_rcpmk")
+
+[node name="Coral9" parent="world1/Details" instance=ExtResource("6_k3i2d")]
+transform = Transform3D(-0.00961141, 0.00349312, 0.00206938, 0, 0.00845808, -0.0112146, -0.00276057, -0.0121619, -0.00720493, 0.0977309, 0.0241894, -0.202728)
+
+[node name="Coral11" parent="world1/Details" instance=ExtResource("6_k3i2d")]
+transform = Transform3D(-0.00717957, -0.000816048, 0.00826607, 0.00115899, 0.0116405, 0.00259848, -0.00681049, 0.00284122, -0.00827182, 0.154694, 0.0123152, -0.123956)
+surface_material_override/0 = SubResource("StandardMaterial3D_rcpmk")
+
+[node name="Coral12" parent="world1/Details" instance=ExtResource("6_k3i2d")]
+transform = Transform3D(0.00429282, -0.00762646, 0.00693249, 0.000448679, 0.00807449, 0.00705864, -0.0152459, -0.00190976, 0.00215972, 0.0863599, 0.0241894, -0.163138)
+
+[node name="Coral10" parent="world1/Details" instance=ExtResource("6_k3i2d")]
+transform = Transform3D(-0.00559309, 0, 0.00828959, 0, 0.01, 0, -0.00828959, 0, -0.00559309, 0.456642, 0.0273743, -0.047677)
+
+[node name="Coral13" parent="world1/Details" instance=ExtResource("6_k3i2d")]
+transform = Transform3D(0.00782379, 0, 0.00741744, 0, 0.01201, 0, -0.00616933, 0, 0.00940662, 0.438523, 0.0273743, 0.0127427)
+surface_material_override/0 = SubResource("StandardMaterial3D_rcpmk")
+
+[node name="Coral14" parent="world1/Details" instance=ExtResource("6_k3i2d")]
+transform = Transform3D(-0.00559309, 0.0104893, 0.00621406, 0, 0.00845808, -0.0112146, -0.00828959, -0.00707728, -0.0041927, 0.425775, 0.0273743, -0.0934258)
+
+[node name="Coral15" parent="world1/Details" instance=ExtResource("6_k3i2d")]
+transform = Transform3D(-0.00112783, -0.00245048, 0.0116486, 0.00115899, 0.0116405, 0.00259848, -0.00983143, 0.00165336, -0.00102996, 0.418833, 0.0155001, 0.00353677)
+surface_material_override/0 = SubResource("StandardMaterial3D_rcpmk")
+
+[node name="Coral16" parent="world1/Details" instance=ExtResource("6_k3i2d")]
+transform = Transform3D(0.0130833, -0.0046183, 0.00392587, 0.000448679, 0.00807449, 0.00705864, -0.00892723, -0.0063625, 0.0061083, 0.391629, 0.0273743, -0.0703873)
+
+[node name="Coral17" parent="world1/Details" instance=ExtResource("6_k3i2d")]
+transform = Transform3D(0.00308735, 0, -0.00951148, 0, 0.01, 0, 0.00951148, 0, 0.00308735, 0.299141, 0.027778, -0.0591792)
+
+[node name="Coral18" parent="world1/Details" instance=ExtResource("6_k3i2d")]
+transform = Transform3D(-0.00922285, 0, -0.00453245, 0, 0.01201, 0, 0.00376979, 0, -0.0110887, 0.256325, 0.0290932, -0.112948)
+surface_material_override/0 = SubResource("StandardMaterial3D_rcpmk")
+
+[node name="Coral19" parent="world1/Details" instance=ExtResource("6_k3i2d")]
+transform = Transform3D(0.00999423, -0.000336093, -0.000337831, -2.61114e-11, 0.00661235, -0.0148759, 0.000339749, 0.00988663, 0.00993775, 0.239269, 0.0290932, -0.00738614)
+
+[node name="Coral20" parent="world1/Details" instance=ExtResource("6_k3i2d")]
+transform = Transform3D(-0.00163003, 0.00281167, -0.0114803, 0.00115899, 0.0116405, 0.00259848, 0.00976073, -0.000912646, -0.00222574, 0.272708, 0.017219, -0.0986645)
+surface_material_override/0 = SubResource("StandardMaterial3D_rcpmk")
+
+[node name="Coral21" parent="world1/Details" instance=ExtResource("6_k3i2d")]
+transform = Transform3D(-0.0063854, 0.0030695, -0.0018263, 0.000190501, 0.00923964, 0.00617668, 0.00210958, 0.00845657, -0.00608573, 0.348373, 0.019163, -0.0201032)
+
+[node name="Coral22" parent="world1/Details" instance=ExtResource("6_k3i2d")]
+transform = Transform3D(0.00563103, 0, 0.0130494, -0.00399976, 0.0135284, 0.00172596, -0.0124213, -0.00435626, 0.00535999, -0.147523, 0.0496071, 0.143792)
 
 [node name="water surface" type="MeshInstance3D" parent="world1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000768244, 0.408858, -0.00548983)
@@ -143,7 +197,7 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_1y88p")
 
 [node name="PlayerSlug" parent="." node_paths=PackedStringArray("camera_3d") instance=ExtResource("4_ixh8q")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -22.5911, -6.0665, 24.6946)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -22.1591, -5.31136, 24.6946)
 camera_3d = NodePath("../CameraSwitcher/Cam1")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
@@ -252,7 +306,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.36147, 0.013958, 1.64037)
 shape = SubResource("BoxShape3D_vj1i3")
 
 [node name="Loadzone" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.407, -126.974, -2.67791)
+transform = Transform3D(1, 0, 0, 0, 0.853478, -0.521129, 0, 0.521129, 0.853478, -20.407, -115.139, -2.67791)
 monitorable = false
 script = ExtResource("13_p2u10")
 level = 2
