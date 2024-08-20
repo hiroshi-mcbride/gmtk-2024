@@ -18,12 +18,20 @@ config/icon="res://icon.svg"
 [audio]
 
 buses/default_bus_layout="res://assets/audio/default_bus_layout.tres"
+manager/sound/bus="Sound"
+manager/sound/pool_1D_size=16
+manager/sound/pool_2D_size=16
+manager/sound/pool_3D_size=16
+manager/sound/max_polyphony=32
+manager/music/bus="Music"
 
 [autoload]
 
 GlobalSignals="*res://src/global/global_signals.gd"
 Strings="*res://src/global/strings.gd"
 InputHelper="*res://addons/input_helper/input_helper.gd"
+SoundManager="*res://addons/resonate/sound_manager/sound_manager.gd"
+MusicManager="*res://addons/resonate/music_manager/music_manager.gd"
 
 [display]
 
@@ -42,7 +50,7 @@ project/assembly_name="gmtk-2024"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/input_helper/plugin.cfg")
+enabled=PackedStringArray("res://addons/input_helper/plugin.cfg", "res://addons/resonate/plugin.cfg")
 
 [input]
 

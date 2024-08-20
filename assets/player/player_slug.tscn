@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://src/player/player_container.gd" id="1_7nad0"]
 [ext_resource type="Shader" path="res://assets/shaders/ps1.gdshader" id="1_25jiy"]
 [ext_resource type="Script" path="res://src/player/player_slug.gd" id="1_86usw"]
-[ext_resource type="PhysicsMaterial" path="res://assets/player/player_body.physmat.tres" id="4_0vfro"]
-[ext_resource type="AudioStream" uid="uid://b5nynfb6vam0x" path="res://assets/audio/oozling.ogg" id="4_rsjul"]
+[ext_resource type="PhysicsMaterial" uid="uid://vvbbctc44vsy" path="res://assets/player/player_body.physmat.tres" id="4_0vfro"]
+[ext_resource type="AudioStream" uid="uid://ca3t321luo2vq" path="res://assets/audio/oozling-002.ogg" id="4_cvtht"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_it284"]
 radius = 0.150752
@@ -75,12 +75,12 @@ transform = Transform3D(-0.927405, 0.367239, 0.0710964, 0.362655, 0.836172, 0.41
 mesh = SubResource("CapsuleMesh_rqwv7")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Head"]
-stream = ExtResource("4_rsjul")
-volume_db = -2.0
-unit_size = 0.1
-max_db = -2.0
+stream = ExtResource("4_cvtht")
+volume_db = -10.0
+unit_size = 0.12
+max_db = -10.0
 autoplay = true
-max_distance = 16.0
+max_distance = 32.0
 bus = &"sfx"
 parameters/looping = true
 

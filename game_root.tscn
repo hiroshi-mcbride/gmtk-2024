@@ -1,6 +1,46 @@
-[gd_scene load_steps=2 format=3 uid="uid://cidbu3txii66l"]
+[gd_scene load_steps=14 format=3 uid="uid://cidbu3txii66l"]
 
 [ext_resource type="Script" path="res://src/global/scene_manager.gd" id="1_2h0qm"]
+[ext_resource type="Script" path="res://src/global/global_audio_player.gd" id="2_136lf"]
+[ext_resource type="Script" path="res://addons/resonate/music_manager/music_bank.gd" id="3_hs8hs"]
+[ext_resource type="Script" path="res://addons/resonate/music_manager/music_track_resource.gd" id="4_5rdml"]
+[ext_resource type="Script" path="res://addons/resonate/music_manager/music_stem_resource.gd" id="5_uvuff"]
+[ext_resource type="AudioStream" uid="uid://blxj1uitsx34f" path="res://assets/audio/voidbunny-theme-main.mp3" id="6_hpqxw"]
+[ext_resource type="AudioStream" uid="uid://cau8c46pj4rm8" path="res://assets/audio/voidbunny-theme-reverb.mp3" id="7_0vy26"]
+[ext_resource type="AudioStream" uid="uid://bapmehj4dnkdd" path="res://assets/audio/gmtk_ambience2.mp3" id="8_wge3g"]
+
+[sub_resource type="Resource" id="Resource_clcme"]
+script = ExtResource("5_uvuff")
+name = "Main"
+enabled = false
+volume = 0.0
+stream = ExtResource("6_hpqxw")
+
+[sub_resource type="Resource" id="Resource_t0c8w"]
+script = ExtResource("5_uvuff")
+name = "Reverb"
+enabled = true
+volume = -4.4
+stream = ExtResource("7_0vy26")
+
+[sub_resource type="Resource" id="Resource_3ahwv"]
+script = ExtResource("4_5rdml")
+name = "MainTheme"
+bus = ""
+stems = Array[ExtResource("5_uvuff")]([SubResource("Resource_clcme"), SubResource("Resource_t0c8w")])
+
+[sub_resource type="Resource" id="Resource_b45ci"]
+script = ExtResource("5_uvuff")
+name = ""
+enabled = true
+volume = -4.4
+stream = ExtResource("8_wge3g")
+
+[sub_resource type="Resource" id="Resource_nuhhu"]
+script = ExtResource("4_5rdml")
+name = "Abyss"
+bus = ""
+stems = Array[ExtResource("5_uvuff")]([SubResource("Resource_b45ci")])
 
 [node name="GameRoot" type="Node3D"]
 process_mode = 3
@@ -10,3 +50,15 @@ script = ExtResource("1_2h0qm")
 
 [node name="WorldRoot" type="Node3D" parent="."]
 unique_name_in_owner = true
+
+[node name="GlobalAudio" type="Node3D" parent="."]
+script = ExtResource("2_136lf")
+
+[node name="MusicBank" type="Node" parent="GlobalAudio"]
+script = ExtResource("3_hs8hs")
+label = "Music"
+bus = "music"
+mode = 3
+tracks = Array[ExtResource("4_5rdml")]([SubResource("Resource_3ahwv"), SubResource("Resource_nuhhu")])
+
+[connection signal="world_loaded" from="." to="GlobalAudio" method="_on_world_loaded"]

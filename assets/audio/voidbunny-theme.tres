@@ -1,0 +1,11 @@
+[gd_resource type="AudioStreamSynchronized" load_steps=3 format=3 uid="uid://tltm6711ppev"]
+
+[ext_resource type="AudioStream" uid="uid://blxj1uitsx34f" path="res://assets/audio/voidbunny-theme-main.mp3" id="1_fdcai"]
+[ext_resource type="AudioStream" uid="uid://cau8c46pj4rm8" path="res://assets/audio/voidbunny-theme-reverb.mp3" id="2_8yumm"]
+
+[resource]
+stream_count = 2
+stream_0/stream = ExtResource("1_fdcai")
+stream_0/volume = -60.0
+stream_1/stream = ExtResource("2_8yumm")
+stream_1/volume = 0.0

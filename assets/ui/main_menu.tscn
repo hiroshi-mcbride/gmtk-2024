@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://dvx6awjab0tpw"]
 
-[ext_resource type="Theme" path="res://assets/ui/menu.theme" id="1_e4thq"]
+[ext_resource type="Theme" uid="uid://d3i20r1tbl66f" path="res://assets/ui/menu.theme" id="1_e4thq"]
 [ext_resource type="Script" path="res://src/ui/main_menu.gd" id="1_iwle6"]
 [ext_resource type="PackedScene" uid="uid://brxxxb27464ll" path="res://assets/ui/btn_signal.tscn" id="2_xrjr0"]
 [ext_resource type="PackedScene" uid="uid://blfqjtws1t4bu" path="res://assets/ui/btn_quit_game.tscn" id="3_cpcmm"]
@@ -125,6 +125,7 @@ unique_name_in_owner = true
 stream = ExtResource("5_hlmtg")
 volume_db = -16.0
 autoplay = true
+bus = &"ambience"
 
 [node name="World1" type="Node3D" parent="."]
 
