@@ -13,6 +13,7 @@ config_version=5
 config/name="Void Bunny"
 run/main_scene="res://game_root.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
+boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://icon.svg"
 
 [audio]
@@ -141,4 +142,4 @@ pause={
 
 [rendering]
 
-environment/defaults/default_clear_color=Color(0.0467838, 0.0479182, 0.0854548, 1)
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

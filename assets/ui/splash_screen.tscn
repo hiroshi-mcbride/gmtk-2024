@@ -1,0 +1,104 @@
+[gd_scene load_steps=3 format=3 uid="uid://bep0ffxydv3oo"]
+
+[ext_resource type="Theme" uid="uid://d3i20r1tbl66f" path="res://assets/ui/menu.theme" id="1_qd3r2"]
+[ext_resource type="Script" path="res://assets/ui/auto_skip.gd" id="2_mjgpp"]
+
+[node name="SplashScreen" type="Control" node_paths=PackedStringArray("timer")]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -270.0
+offset_right = 480.0
+offset_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_qd3r2")
+script = ExtResource("2_mjgpp")
+timer = NodePath("Timer")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = -162.0
+offset_right = 152.0
+offset_bottom = -114.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_qd3r2")
+theme_override_font_sizes/font_size = 64
+text = "Hiroshi McBride"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -102.0
+offset_right = 27.0
+offset_bottom = -66.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_qd3r2")
+theme_override_font_sizes/font_size = 48
+text = "and"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -146.0
+offset_top = -60.0
+offset_right = 146.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_qd3r2")
+theme_override_font_sizes/font_size = 64
+text = "Lea \"Roboolet\""
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.0
+offset_top = 46.0
+offset_right = 62.0
+offset_bottom = 82.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_qd3r2")
+theme_override_font_sizes/font_size = 48
+text = "present"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
