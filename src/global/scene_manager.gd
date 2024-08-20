@@ -22,7 +22,7 @@ func _ready():
 	GlobalSignals.splash_skip.connect(_on_splash_skip)
 
 func _on_splash_skip():
-	load_scene(MAIN_MENU_SCENE, canvas_layer)
+	load_scene.call_deferred(MAIN_MENU_SCENE, canvas_layer)
 
 func _on_game_started():
 	load_scene(PAUSE_MENU_SCENE, canvas_layer)
@@ -34,7 +34,8 @@ func _on_game_started():
 
 func _on_game_quit():
 	GlobalSignals.game_quit.disconnect(_on_game_quit)
-	load_scene(MAIN_MENU_SCENE, canvas_layer)
+	current_scene.queue_free()
+	load_scene.call_deferred(MAIN_MENU_SCENE, canvas_layer)
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func _on_world_changed(world):
