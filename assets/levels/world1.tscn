@@ -110,19 +110,24 @@ autoplay = true
 [node name="world1" parent="." instance=ExtResource("1_mqybv")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0.000768244, 3.57628e-07, 0.00548983)
 
-[node name="Coral1" type="MeshInstance3D" parent="world1"]
+[node name="Details" type="Node3D" parent="world1"]
+
+[node name="Coral1" type="MeshInstance3D" parent="world1/Details"]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0.00955182, 0.0224705, 0)
 mesh = ExtResource("3_uqh8w")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_m1cu7")
 
-[node name="Coral2" type="MeshInstance3D" parent="world1"]
+[node name="Coral2" type="MeshInstance3D" parent="world1/Details"]
 transform = Transform3D(0.00518814, 0, 0.0076482, 0.000856443, 0.0127524, -0.000895835, -0.00609932, 0.00179065, 0.00637985, -0.0292366, 0.0168826, -0.0290093)
 mesh = ExtResource("3_uqh8w")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_m1cu7")
 
-[node name="Coral3" type="MeshInstance3D" parent="world1"]
+[node name="Coral3" type="MeshInstance3D" parent="world1/Details"]
 transform = Transform3D(0.0118648, -0.00143663, 0.00172578, 0.0012762, 0.0148543, -0.00134376, -0.00126425, 0.00151215, 0.0148397, -0.426718, -0.118569, 0.528014)
 mesh = ExtResource("3_uqh8w")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_m1cu7")
 
 [node name="water surface" type="MeshInstance3D" parent="world1"]
