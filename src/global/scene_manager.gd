@@ -15,8 +15,8 @@ func _ready():
 	load_scene(MAIN_MENU_SCENE, canvas_layer)
 
 func _on_game_started():
-	load_scene(WORLD_SCENE, self)
-	load_scene(PAUSE_MENU_SCENE, canvas_layer)
+	load_scene(PAUSE_MENU_SCENE, canvas_layer)	
+	load_scene(WORLD_SCENE, get_node("WorldRoot"))
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	GlobalSignals.game_quit.connect(_on_game_quit)
@@ -26,6 +26,13 @@ func _on_game_quit():
 	load_scene(MAIN_MENU_SCENE, canvas_layer)
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
+func clear_world():
+	#clear world root
+	for n in %WorldRoot.get_children():
+		%WorldRoot.remove_child(n)
+		n.queue_free()
+
 func load_scene(scene:PackedScene, parent:Node):
+	
 	var loaded_scene = scene.instantiate()
 	parent.add_child(loaded_scene)

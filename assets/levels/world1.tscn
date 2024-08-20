@@ -257,7 +257,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.36147, 0.013958, 1.64037)
 shape = SubResource("BoxShape3D_vj1i3")
 
 [node name="Loadzone" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.407, -111.492, -2.67791)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.407, -126.974, -2.67791)
 monitorable = false
 script = ExtResource("13_p2u10")
 level = 2

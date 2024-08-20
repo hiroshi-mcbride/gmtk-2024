@@ -10,4 +10,5 @@ func _ready():
 	scene = load(str("res://assets/levels/world", level, ".tscn"))
 
 func _on_body_entered(body):
-	root.load_scene(scene, root)
+	root.clear_world()
+	root.load_scene(scene, root.get_node("WorldRoot"))
