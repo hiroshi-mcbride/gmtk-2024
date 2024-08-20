@@ -1,5 +1,6 @@
 class_name SceneManager extends Node
 
+const SPLASH_SCREEN : PackedScene = preload("res://assets/ui/splash_screen.tscn")
 const MAIN_MENU_SCENE : PackedScene = preload("res://assets/ui/main_menu.tscn")
 const WORLD1_SCENE : PackedScene = preload("res://assets/levels/world1.tscn")
 const WORLD2_SCENE : PackedScene = preload("res://assets/levels/world2.tscn")
@@ -17,6 +18,10 @@ func _enter_tree():
 	GlobalSignals.world_changed.connect(_on_world_changed)
 
 func _ready():
+	await load_scene(SPLASH_SCREEN, canvas_layer)
+	GlobalSignals.splash_skip.connect(_on_splash_skip)
+
+func _on_splash_skip():
 	load_scene(MAIN_MENU_SCENE, canvas_layer)
 
 func _on_game_started():
@@ -39,11 +44,6 @@ func _on_world_changed(world):
 		load_scene.call_deferred(WORLD2_SCENE, get_node("WorldRoot"))
 		world_loaded.emit(world)
 
-#func clear_world():
-	##clear world root
-	#for n in %WorldRoot.get_children():
-		#%WorldRoot.remove_child(n)
-		#n.queue_free()
 
 func load_scene(scene:PackedScene, parent:Node):
 	
