@@ -196,7 +196,7 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_1y88p")
 
 [node name="PlayerSlug" parent="." node_paths=PackedStringArray("camera_3d") instance=ExtResource("4_ixh8q")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -22.1591, -5.31136, 24.6946)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.1591, -5.31136, 24.6946)
 camera_3d = NodePath("../CameraSwitcher/Cam1")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
