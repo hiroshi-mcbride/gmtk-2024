@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://depxsifr08f28"]
+[gd_scene load_steps=14 format=3 uid="uid://depxsifr08f28"]
 
 [ext_resource type="PackedScene" uid="uid://eva8mktbx00q" path="res://assets/models/world2.glb" id="1_j2gng"]
 [ext_resource type="Texture2D" uid="uid://bge7fiojxace" path="res://assets/textures/moonless_golf_4k.exr" id="1_jf637"]
@@ -25,6 +25,26 @@ fog_light_color = Color(0.0433506, 0.0589487, 0.102505, 1)
 fog_density = 0.057
 fog_sky_affect = 0.758
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k01to"]
+transparency = 1
+blend_mode = 1
+cull_mode = 1
+albedo_color = Color(0.349298, 0.38613, 0.394014, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_60ser"]
+top_radius = 15.566
+bottom_radius = 3.96
+height = 100.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_o482v"]
+radius = 3.33
+height = 6.825
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hk3n8"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 229.35
+
 [node name="World2" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -39,7 +59,7 @@ autoplay = true
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 
 [node name="PlayerSlug" parent="." node_paths=PackedStringArray("camera_3d") instance=ExtResource("2_h5mwm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.0919, 79.5122, -64.3422)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.4972, 79.5122, -69.1815)
 camera_3d = NodePath("../CameraSwitcher/Cam1")
 
 [node name="CameraSwitcher" type="Node3D" parent="."]
@@ -53,13 +73,24 @@ script = ExtResource("5_c8ccg")
 follow_subject = NodePath("../../PlayerSlug")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 54.5796, 125.339, -67.7454)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 44.9573, 125.339, -67.7454)
 light_energy = 1.24
 light_bake_mode = 1
 shadow_enabled = true
 spot_range = 171.113
 spot_attenuation = -0.25
-spot_angle = 32.2
-spot_angle_attenuation = 5.85635
+spot_angle = 8.56
+spot_angle_attenuation = 1.56917
+
+[node name="shaft" type="MeshInstance3D" parent="SpotLight3D"]
+transform = Transform3D(1, 0, 0, 0, -6.96495e-08, 1, 0, -1.5934, -4.37114e-08, -0.537376, -0.55024, -34.588)
+material_override = SubResource("StandardMaterial3D_k01to")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_60ser")
+
+[node name="point" type="MeshInstance3D" parent="SpotLight3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.576836, 0, 57.5382)
+mesh = SubResource("SphereMesh_o482v")
+surface_material_override/0 = SubResource("StandardMaterial3D_hk3n8")
 
 [editable path="PlayerSlug"]
